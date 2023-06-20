@@ -151,6 +151,12 @@
     <Compile Include="Forms\Form_Chinh.Designer.cs">
       <DependentUpon>Form_Chinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Form_Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Profile.Designer.cs">
+      <DependentUpon>Form_Profile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Form_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +173,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Form_Chinh.resx">
       <DependentUpon>Form_Chinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Profile.resx">
+      <DependentUpon>Form_Profile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>

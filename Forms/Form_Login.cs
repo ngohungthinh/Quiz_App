@@ -70,7 +70,12 @@ namespace Quiz_app.Forms
                 {
                     if (password == Security.Decrypt(data.Password))
                     {
-                        MessageBox.Show("Login Success");
+                        MessageBox.Show("Login success!");
+                        Form_Chinh.username = email;
+                        this.Hide();
+                        Form_Chinh formChinh = new Form_Chinh();
+                        formChinh.ShowDialog();
+                        this.Close();
                     }
                     else
                         MessageBox.Show("Login Failed");

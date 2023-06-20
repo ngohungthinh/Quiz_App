@@ -1,7 +1,7 @@
 ﻿
 namespace Quiz_app.Forms
 {
-    partial class Form_Chinh
+    partial class Form_Profile
     {
         /// <summary>
         /// Required designer variable.
@@ -35,15 +35,13 @@ namespace Quiz_app.Forms
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button_signup = new System.Windows.Forms.Button();
-            this.button_login = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.button_logout = new System.Windows.Forms.Button();
-            this.profileLb = new System.Windows.Forms.Label();
+            this.label_Nhap_sai = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -73,7 +71,6 @@ namespace Quiz_app.Forms
             this.label2.Size = new System.Drawing.Size(27, 29);
             this.label2.TabIndex = 4;
             this.label2.Text = "_";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label_Close
             // 
@@ -90,12 +87,8 @@ namespace Quiz_app.Forms
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(65)))));
-            this.panel2.Controls.Add(this.profileLb);
-            this.panel2.Controls.Add(this.button_logout);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.button_signup);
-            this.panel2.Controls.Add(this.button_login);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 30);
             this.panel2.Name = "panel2";
@@ -126,37 +119,6 @@ namespace Quiz_app.Forms
             this.label1.TabIndex = 2;
             this.label1.Text = "Oh My Quiz!";
             this.label1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // button_signup
-            // 
-            this.button_signup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_signup.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button_signup.FlatAppearance.BorderSize = 2;
-            this.button_signup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_signup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_signup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button_signup.Location = new System.Drawing.Point(1013, 17);
-            this.button_signup.Name = "button_signup";
-            this.button_signup.Size = new System.Drawing.Size(105, 35);
-            this.button_signup.TabIndex = 4;
-            this.button_signup.Text = "Đăng kí";
-            this.button_signup.UseVisualStyleBackColor = true;
-            this.button_signup.Click += new System.EventHandler(this.button_signup_Click);
-            // 
-            // button_login
-            // 
-            this.button_login.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_login.FlatAppearance.BorderSize = 2;
-            this.button_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_login.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button_login.Location = new System.Drawing.Point(885, 17);
-            this.button_login.Name = "button_login";
-            this.button_login.Size = new System.Drawing.Size(105, 35);
-            this.button_login.TabIndex = 3;
-            this.button_login.Text = "Đăng nhập";
-            this.button_login.UseVisualStyleBackColor = true;
-            this.button_login.Click += new System.EventHandler(this.button_login_Click);
             // 
             // panel3
             // 
@@ -199,34 +161,34 @@ namespace Quiz_app.Forms
             this.panel7.Size = new System.Drawing.Size(1157, 1);
             this.panel7.TabIndex = 6;
             // 
-            // button_logout
+            // label_Nhap_sai
             // 
-            this.button_logout.Location = new System.Drawing.Point(1013, 17);
-            this.button_logout.Name = "button_logout";
-            this.button_logout.Size = new System.Drawing.Size(116, 35);
-            this.button_logout.TabIndex = 7;
-            this.button_logout.Text = "Logout";
-            this.button_logout.UseVisualStyleBackColor = true;
-            this.button_logout.Click += new System.EventHandler(this.button_logout_Click);
+            this.label_Nhap_sai.AutoSize = true;
+            this.label_Nhap_sai.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label_Nhap_sai.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Nhap_sai.ForeColor = System.Drawing.Color.DarkRed;
+            this.label_Nhap_sai.Location = new System.Drawing.Point(404, 638);
+            this.label_Nhap_sai.Name = "label_Nhap_sai";
+            this.label_Nhap_sai.Size = new System.Drawing.Size(0, 36);
+            this.label_Nhap_sai.TabIndex = 39;
             // 
-            // profileLb
+            // label3
             // 
-            this.profileLb.AutoSize = true;
-            this.profileLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileLb.ForeColor = System.Drawing.Color.White;
-            this.profileLb.Location = new System.Drawing.Point(882, 17);
-            this.profileLb.Name = "profileLb";
-            this.profileLb.Size = new System.Drawing.Size(61, 22);
-            this.profileLb.TabIndex = 8;
-            this.profileLb.Text = "Profile";
-            this.profileLb.Click += new System.EventHandler(this.profileLb_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(553, 345);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 16);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "Profile";
             // 
-            // Form_Chinh
+            // Form_Profile
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1157, 732);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label_Nhap_sai);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
@@ -235,7 +197,7 @@ namespace Quiz_app.Forms
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form_Chinh";
+            this.Name = "Form_Profile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
@@ -244,6 +206,7 @@ namespace Quiz_app.Forms
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -251,8 +214,6 @@ namespace Quiz_app.Forms
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button_login;
-        private System.Windows.Forms.Button button_signup;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label_Close;
@@ -262,7 +223,7 @@ namespace Quiz_app.Forms
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label profileLb;
-        private System.Windows.Forms.Button button_logout;
+        private System.Windows.Forms.Label label_Nhap_sai;
+        private System.Windows.Forms.Label label3;
     }
 }
