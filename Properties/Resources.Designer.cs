@@ -63,6 +63,16 @@ namespace Quiz_app.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Background_xanh_duong_basic {
+            get {
+                object obj = ResourceManager.GetObject("Background-xanh-duong-basic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Q2 {
             get {
                 object obj = ResourceManager.GetObject("Q2", resourceCulture);
