@@ -50,6 +50,9 @@ namespace Quiz_app.Forms
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label_Nhap_sai = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.loadAvatarBtn = new System.Windows.Forms.Button();
+            this.avatarFilenameLb = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,7 +79,7 @@ namespace Quiz_app.Forms
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label2.Location = new System.Drawing.Point(1102, 2);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 24);
+            this.label2.Size = new System.Drawing.Size(27, 29);
             this.label2.TabIndex = 4;
             this.label2.Text = "_";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -88,7 +91,7 @@ namespace Quiz_app.Forms
             this.label_Close.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label_Close.Location = new System.Drawing.Point(1129, 3);
             this.label_Close.Name = "label_Close";
-            this.label_Close.Size = new System.Drawing.Size(25, 24);
+            this.label_Close.Size = new System.Drawing.Size(31, 29);
             this.label_Close.TabIndex = 3;
             this.label_Close.Text = "X";
             this.label_Close.Click += new System.EventHandler(this.label_Close_Click);
@@ -125,7 +128,7 @@ namespace Quiz_app.Forms
             this.label1.ForeColor = System.Drawing.Color.Orange;
             this.label1.Location = new System.Drawing.Point(77, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(228, 26);
+            this.label1.Size = new System.Drawing.Size(291, 33);
             this.label1.TabIndex = 2;
             this.label1.Text = "Oh My Quiz!";
             this.label1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -135,7 +138,7 @@ namespace Quiz_app.Forms
             this.button_login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_login.FlatAppearance.BorderSize = 2;
             this.button_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_login.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_login.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button_login.Location = new System.Drawing.Point(1002, 17);
             this.button_login.Name = "button_login";
@@ -190,9 +193,9 @@ namespace Quiz_app.Forms
             // 
             this.textBoxEmail.Cursor = System.Windows.Forms.Cursors.Hand;
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmail.Location = new System.Drawing.Point(461, 334);
+            this.textBoxEmail.Location = new System.Drawing.Point(515, 334);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(372, 29);
+            this.textBoxEmail.Size = new System.Drawing.Size(372, 34);
             this.textBoxEmail.TabIndex = 36;
             // 
             // label7
@@ -202,7 +205,7 @@ namespace Quiz_app.Forms
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(327, 337);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 24);
+            this.label7.Size = new System.Drawing.Size(80, 29);
             this.label7.TabIndex = 35;
             this.label7.Text = "Email:";
             // 
@@ -213,9 +216,9 @@ namespace Quiz_app.Forms
             this.buttonSignup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSignup.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSignup.ForeColor = System.Drawing.Color.White;
-            this.buttonSignup.Location = new System.Drawing.Point(331, 583);
+            this.buttonSignup.Location = new System.Drawing.Point(467, 626);
             this.buttonSignup.Name = "buttonSignup";
-            this.buttonSignup.Size = new System.Drawing.Size(502, 69);
+            this.buttonSignup.Size = new System.Drawing.Size(304, 69);
             this.buttonSignup.TabIndex = 30;
             this.buttonSignup.Text = "Đăng ký";
             this.buttonSignup.UseVisualStyleBackColor = false;
@@ -225,9 +228,9 @@ namespace Quiz_app.Forms
             // 
             this.textBoxName.Cursor = System.Windows.Forms.Cursors.Hand;
             this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxName.Location = new System.Drawing.Point(461, 486);
+            this.textBoxName.Location = new System.Drawing.Point(515, 486);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(372, 29);
+            this.textBoxName.Size = new System.Drawing.Size(372, 34);
             this.textBoxName.TabIndex = 29;
             // 
             // label10
@@ -237,7 +240,7 @@ namespace Quiz_app.Forms
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(327, 489);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(103, 24);
+            this.label10.Size = new System.Drawing.Size(129, 29);
             this.label10.TabIndex = 28;
             this.label10.Text = "Họ và Tên:";
             // 
@@ -245,9 +248,9 @@ namespace Quiz_app.Forms
             // 
             this.textBoxPassword.Cursor = System.Windows.Forms.Cursors.Hand;
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.Location = new System.Drawing.Point(461, 408);
+            this.textBoxPassword.Location = new System.Drawing.Point(515, 408);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(372, 29);
+            this.textBoxPassword.Size = new System.Drawing.Size(372, 34);
             this.textBoxPassword.TabIndex = 27;
             // 
             // label11
@@ -257,7 +260,7 @@ namespace Quiz_app.Forms
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(327, 411);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(91, 24);
+            this.label11.Size = new System.Drawing.Size(115, 29);
             this.label11.TabIndex = 26;
             this.label11.Text = "Mật khẩu:";
             // 
@@ -270,7 +273,7 @@ namespace Quiz_app.Forms
             this.label9.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label9.Location = new System.Drawing.Point(172, 161);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(859, 89);
+            this.label9.Size = new System.Drawing.Size(1060, 112);
             this.label9.TabIndex = 37;
             this.label9.Text = "Welcome to OhMyQuiz!";
             // 
@@ -282,8 +285,38 @@ namespace Quiz_app.Forms
             this.label_Nhap_sai.ForeColor = System.Drawing.Color.DarkRed;
             this.label_Nhap_sai.Location = new System.Drawing.Point(409, 264);
             this.label_Nhap_sai.Name = "label_Nhap_sai";
-            this.label_Nhap_sai.Size = new System.Drawing.Size(0, 29);
+            this.label_Nhap_sai.Size = new System.Drawing.Size(0, 36);
             this.label_Nhap_sai.TabIndex = 38;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(326, 557);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(152, 29);
+            this.label3.TabIndex = 39;
+            this.label3.Text = "Ảnh đại diện:";
+            // 
+            // loadAvatarBtn
+            // 
+            this.loadAvatarBtn.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.loadAvatarBtn.Location = new System.Drawing.Point(515, 557);
+            this.loadAvatarBtn.Name = "loadAvatarBtn";
+            this.loadAvatarBtn.Size = new System.Drawing.Size(95, 23);
+            this.loadAvatarBtn.TabIndex = 40;
+            this.loadAvatarBtn.Text = "Tải lên";
+            this.loadAvatarBtn.UseVisualStyleBackColor = true;
+            this.loadAvatarBtn.Click += new System.EventHandler(this.loadAvatarBtn_Click);
+            // 
+            // avatarFilenameLb
+            // 
+            this.avatarFilenameLb.AutoSize = true;
+            this.avatarFilenameLb.Location = new System.Drawing.Point(650, 563);
+            this.avatarFilenameLb.Name = "avatarFilenameLb";
+            this.avatarFilenameLb.Size = new System.Drawing.Size(0, 16);
+            this.avatarFilenameLb.TabIndex = 41;
             // 
             // Form_Register
             // 
@@ -291,6 +324,9 @@ namespace Quiz_app.Forms
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1157, 732);
+            this.Controls.Add(this.avatarFilenameLb);
+            this.Controls.Add(this.loadAvatarBtn);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label_Nhap_sai);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBoxEmail);
@@ -345,5 +381,8 @@ namespace Quiz_app.Forms
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label_Nhap_sai;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button loadAvatarBtn;
+        private System.Windows.Forms.Label avatarFilenameLb;
     }
 }

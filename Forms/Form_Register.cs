@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Quiz_app.Forms
 {
@@ -58,11 +59,16 @@ namespace Quiz_app.Forms
             password = Security.Encrypt(password);
             string name = textBoxName.Text.Trim();
 
+            // Profile picture
+            byte[] imageBytes = File.ReadAllBytes(avatarFilenameLb.Text);
+            string base64String = Convert.ToBase64String(imageBytes);
+
             return new UserData()
             {
                 Email = email,
                 Password = password,
-                Name = name
+                Name = name,
+                Avatar = base64String
             };
         }
 
@@ -70,7 +76,7 @@ namespace Quiz_app.Forms
         {
             try
             {
-                if (textBoxPassword.Text == "" || textBoxName.Text == "") throw new Exception();
+                if (textBoxPassword.Text == "" || textBoxName.Text == "" || avatarFilenameLb.Text == "") throw new Exception();
                 label_Nhap_sai.Text = "";
                 if (CheckIfUserAlreadyExist())
                 {
@@ -112,6 +118,18 @@ namespace Quiz_app.Forms
             Form_Chinh f = new Form_Chinh();
             f.ShowDialog();
             this.Close();
+        }
+
+        private void loadAvatarBtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog avatar = new OpenFileDialog();
+            avatar.Title = "Select image";
+            avatar.Filter = "Image Files(*.jpg) | *.jpg";
+
+            if (avatar.ShowDialog() == DialogResult.OK)
+            {
+                avatarFilenameLb.Text = avatar.FileName;
+            }
         }
     }
 }

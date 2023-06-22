@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Google.Cloud.Firestore;
+using Google.Type;
+using Login_Signup.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,17 +24,38 @@ namespace Quiz_app.Forms
             username = "";
         }
 
-        public void Form_Chinh_onLoad(object sender, EventArgs e)
+        public async void Form_Chinh_onLoad(object sender, EventArgs e)
         {
             if (username != "")
             {
                 button_login.Visible = false;
                 button_signup.Visible = false;
                 profileLb.Text = username;
+
+                // Load profile picture
+                var db = FirestoreHelper.Database;
+                DocumentReference docRef = db.Collection("UserData").Document(username);
+                DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
+                UserData userData = null;
+                if (snapshot.Exists)
+                {
+                    userData = snapshot.ConvertTo<UserData>();
+                }
+                else
+                {
+                    MessageBox.Show("Khong ton tai!");
+                }
+                byte[] imageBytes = Convert.FromBase64String(userData.Avatar);
+                using (MemoryStream ms = new MemoryStream(imageBytes))
+                {
+                    Image image = Image.FromStream(ms);
+                    avatarPtb.Image = image.GetThumbnailImage(60, 60, null, IntPtr.Zero);
+                }
             } else
             {
                 button_logout.Visible = false;
                 profileLb.Visible = false;
+                avatarPtb.Visible = false;
             }
         }
 

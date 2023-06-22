@@ -33,6 +33,8 @@ namespace Quiz_app.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.label_Close = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.profileLb = new System.Windows.Forms.Label();
+            this.button_logout = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button_signup = new System.Windows.Forms.Button();
@@ -42,11 +44,11 @@ namespace Quiz_app.Forms
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.button_logout = new System.Windows.Forms.Button();
-            this.profileLb = new System.Windows.Forms.Label();
+            this.avatarPtb = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarPtb)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -90,6 +92,7 @@ namespace Quiz_app.Forms
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(65)))));
+            this.panel2.Controls.Add(this.avatarPtb);
             this.panel2.Controls.Add(this.profileLb);
             this.panel2.Controls.Add(this.button_logout);
             this.panel2.Controls.Add(this.pictureBox1);
@@ -101,6 +104,28 @@ namespace Quiz_app.Forms
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1157, 72);
             this.panel2.TabIndex = 1;
+            // 
+            // profileLb
+            // 
+            this.profileLb.AutoSize = true;
+            this.profileLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileLb.ForeColor = System.Drawing.Color.White;
+            this.profileLb.Location = new System.Drawing.Point(835, 17);
+            this.profileLb.Name = "profileLb";
+            this.profileLb.Size = new System.Drawing.Size(61, 22);
+            this.profileLb.TabIndex = 8;
+            this.profileLb.Text = "Profile";
+            this.profileLb.Click += new System.EventHandler(this.profileLb_Click);
+            // 
+            // button_logout
+            // 
+            this.button_logout.Location = new System.Drawing.Point(1054, 17);
+            this.button_logout.Name = "button_logout";
+            this.button_logout.Size = new System.Drawing.Size(75, 35);
+            this.button_logout.TabIndex = 7;
+            this.button_logout.Text = "Logout";
+            this.button_logout.UseVisualStyleBackColor = true;
+            this.button_logout.Click += new System.EventHandler(this.button_logout_Click);
             // 
             // pictureBox1
             // 
@@ -199,27 +224,13 @@ namespace Quiz_app.Forms
             this.panel7.Size = new System.Drawing.Size(1157, 1);
             this.panel7.TabIndex = 6;
             // 
-            // button_logout
+            // avatarPtb
             // 
-            this.button_logout.Location = new System.Drawing.Point(1013, 17);
-            this.button_logout.Name = "button_logout";
-            this.button_logout.Size = new System.Drawing.Size(116, 35);
-            this.button_logout.TabIndex = 7;
-            this.button_logout.Text = "Logout";
-            this.button_logout.UseVisualStyleBackColor = true;
-            this.button_logout.Click += new System.EventHandler(this.button_logout_Click);
-            // 
-            // profileLb
-            // 
-            this.profileLb.AutoSize = true;
-            this.profileLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileLb.ForeColor = System.Drawing.Color.White;
-            this.profileLb.Location = new System.Drawing.Point(882, 17);
-            this.profileLb.Name = "profileLb";
-            this.profileLb.Size = new System.Drawing.Size(61, 22);
-            this.profileLb.TabIndex = 8;
-            this.profileLb.Text = "Profile";
-            this.profileLb.Click += new System.EventHandler(this.profileLb_Click);
+            this.avatarPtb.Location = new System.Drawing.Point(760, 6);
+            this.avatarPtb.Name = "avatarPtb";
+            this.avatarPtb.Size = new System.Drawing.Size(60, 60);
+            this.avatarPtb.TabIndex = 9;
+            this.avatarPtb.TabStop = false;
             // 
             // Form_Chinh
             // 
@@ -243,6 +254,7 @@ namespace Quiz_app.Forms
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarPtb)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -264,5 +276,6 @@ namespace Quiz_app.Forms
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label profileLb;
         private System.Windows.Forms.Button button_logout;
+        private System.Windows.Forms.PictureBox avatarPtb;
     }
 }
