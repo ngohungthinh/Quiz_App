@@ -313,6 +313,7 @@ namespace Quiz_app.Forms
             // avatarFilenameLb
             // 
             this.avatarFilenameLb.AutoSize = true;
+            this.avatarFilenameLb.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.avatarFilenameLb.Location = new System.Drawing.Point(650, 563);
             this.avatarFilenameLb.Name = "avatarFilenameLb";
             this.avatarFilenameLb.Size = new System.Drawing.Size(0, 16);

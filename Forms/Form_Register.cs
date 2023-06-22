@@ -131,5 +131,6 @@ namespace Quiz_app.Forms
                 avatarFilenameLb.Text = avatar.FileName;
             }
         }
+
     }
 }
