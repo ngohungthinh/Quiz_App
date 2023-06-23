@@ -33,77 +33,83 @@ namespace Quiz_app
 
         private async void btnhap_Click(object sender, EventArgs e)
         {
-            var dulieu = new Data_DapAn
-            {
-                cauhoi = richTextBox1.Text,
-                DA1 = textBox1.Text,
-                DA2 = textBox2.Text,
-                DA3 = textBox3.Text,
-                DA4 = textBox4.Text,
-            };
-
-            if (radioButton1.Checked == true)
-            {
-                dulieu.DADung = "DA1";
-            }
+            if ((richTextBox1.Text == null || textBox1.Text == null || textBox2.Text == null || textBox3.Text == null || textBox4.Text == null) &&
+                (!(radioButton1.Checked) && !(radioButton2.Checked) && !(radioButton3.Checked) && !(radioButton4.Checked)))
+            { MessageBox.Show("Vui long nhap du lieu"); }
             else
-            if (radioButton2.Checked == true)
             {
-                dulieu.DADung = "DA2";
-            }
-            else
-            if (radioButton3.Checked == true)
-            {
-                dulieu.DADung = "DA3";
-            }
-            else
-            if (radioButton4.Checked == true)
-            {
-                dulieu.DADung = "DA4";
-            }
-            IFirebaseClient client = new FirebaseClient(config);
-            if (Int32.TryParse(tbx_stt.Text, out i))
-            {
-
-                string duongdan = $"Cauhoi_DapAn/{txtb_ma_de.Text}/{(i++).ToString()}";
-                FirebaseResponse response = await client.UpdateAsync(duongdan, dulieu);
-                MessageBox.Show("Thanh cong");
-                richTextBox1.Text = "";
-                textBox1.Text = "";
-                textBox2.Text = "";
-                textBox3.Text = "";
-                textBox4.Text = "";
-                // Lấy tất cả các nút radio trong nhóm lựa chọn
-                RadioButton[] radioButtons = groupBox1.Controls.OfType<RadioButton>().ToArray();
-
-                // Duyệt qua tất cả các nút radio và đặt giá trị Checked của mỗi nút radio bằng false
-                foreach (RadioButton radioButton in radioButtons)
+                var dulieu = new Data_DapAn
                 {
-                    radioButton.Checked = false;
-                }
-
-                string duongdan1 = $"Cauhoi_DapAn/{txtb_ma_de.Text}/{(i - 1).ToString()}";
-                FirebaseResponse response1 = await client.GetAsync(duongdan1);
-                Data_DapAn dulnhan = response1.ResultAs<Data_DapAn>();
-                var dln = new Data_DapAn()
-                {
-                    cauhoi = dulieu.cauhoi,
-                    DA1 = dulnhan.DA1,
-                    DA2 = dulnhan.DA2,
-                    DA3 = dulnhan.DA3,
-                    DA4 = dulnhan.DA4,
-                    DADung = dulnhan.DADung
+                    cauhoi = richTextBox1.Text,
+                    DA1 = textBox1.Text,
+                    DA2 = textBox2.Text,
+                    DA3 = textBox3.Text,
+                    DA4 = textBox4.Text,
                 };
-                DataRow row = dt.NewRow();
-                row["stt"] = i - 1;
-                row["cauhoi"] = dln.cauhoi;
-                row["DA1"] = dln.DA1;
-                row["DA2"] = dln.DA2;
-                row["DA3"] = dln.DA3;
-                row["DA4"] = dln.DA4;
-                row["DAdung"] = dln.DADung;
-                dt.Rows.Add(row);
-                tbx_stt.Text = (i).ToString();
+
+                if (radioButton1.Checked == true)
+                {
+                    dulieu.DADung = "DA1";
+                }
+                else
+                if (radioButton2.Checked == true)
+                {
+                    dulieu.DADung = "DA2";
+                }
+                else
+                if (radioButton3.Checked == true)
+                {
+                    dulieu.DADung = "DA3";
+                }
+                else
+                if (radioButton4.Checked == true)
+                {
+                    dulieu.DADung = "DA4";
+                }
+                IFirebaseClient client = new FirebaseClient(config);
+                if (Int32.TryParse(tbx_stt.Text, out i))
+                {
+
+                    string duongdan = $"Cauhoi_DapAn/{txtb_ma_de.Text}/{(i++).ToString()}";
+                    FirebaseResponse response = await client.UpdateAsync(duongdan, dulieu);
+                    MessageBox.Show("Thanh cong");
+                    richTextBox1.Text = "";
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    textBox3.Text = "";
+                    textBox4.Text = "";
+                    // Lấy tất cả các nút radio trong nhóm lựa chọn
+                    RadioButton[] radioButtons = groupBox1.Controls.OfType<RadioButton>().ToArray();
+
+                    // Duyệt qua tất cả các nút radio và đặt giá trị Checked của mỗi nút radio bằng false
+                    foreach (RadioButton radioButton in radioButtons)
+                    {
+                        radioButton.Checked = false;
+                    }
+
+                    string duongdan1 = $"Cauhoi_DapAn/{txtb_ma_de.Text}/{(i - 1).ToString()}";
+                    FirebaseResponse response1 = await client.GetAsync(duongdan1);
+                    Data_DapAn dulnhan = response1.ResultAs<Data_DapAn>();
+                    var dln = new Data_DapAn()
+                    {
+                        cauhoi = dulieu.cauhoi,
+                        DA1 = dulnhan.DA1,
+                        DA2 = dulnhan.DA2,
+                        DA3 = dulnhan.DA3,
+                        DA4 = dulnhan.DA4,
+                        DADung = dulnhan.DADung
+                    };
+                    DataRow row = dt.NewRow();
+                    row["stt"] = i - 1;
+                    row["cauhoi"] = dln.cauhoi;
+                    row["DA1"] = dln.DA1;
+                    row["DA2"] = dln.DA2;
+                    row["DA3"] = dln.DA3;
+                    row["DA4"] = dln.DA4;
+                    row["DAdung"] = dln.DADung;
+                    dt.Rows.Add(row);
+                    tbx_stt.Text = (i).ToString();
+                }
             }
         }
 
