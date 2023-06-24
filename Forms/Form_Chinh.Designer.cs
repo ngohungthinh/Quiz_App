@@ -33,6 +33,7 @@ namespace Quiz_app.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.label_Close = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.avatarPtb = new System.Windows.Forms.PictureBox();
             this.profileLb = new System.Windows.Forms.Label();
             this.button_logout = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -44,11 +45,11 @@ namespace Quiz_app.Forms
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.avatarPtb = new System.Windows.Forms.PictureBox();
+            this.btn_taodethi = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPtb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -105,6 +106,14 @@ namespace Quiz_app.Forms
             this.panel2.Size = new System.Drawing.Size(1157, 72);
             this.panel2.TabIndex = 1;
             // 
+            // avatarPtb
+            // 
+            this.avatarPtb.Location = new System.Drawing.Point(760, 6);
+            this.avatarPtb.Name = "avatarPtb";
+            this.avatarPtb.Size = new System.Drawing.Size(60, 60);
+            this.avatarPtb.TabIndex = 9;
+            this.avatarPtb.TabStop = false;
+            // 
             // profileLb
             // 
             this.profileLb.AutoSize = true;
@@ -112,7 +121,7 @@ namespace Quiz_app.Forms
             this.profileLb.ForeColor = System.Drawing.Color.White;
             this.profileLb.Location = new System.Drawing.Point(835, 17);
             this.profileLb.Name = "profileLb";
-            this.profileLb.Size = new System.Drawing.Size(61, 22);
+            this.profileLb.Size = new System.Drawing.Size(62, 24);
             this.profileLb.TabIndex = 8;
             this.profileLb.Text = "Profile";
             this.profileLb.Click += new System.EventHandler(this.profileLb_Click);
@@ -224,13 +233,17 @@ namespace Quiz_app.Forms
             this.panel7.Size = new System.Drawing.Size(1157, 1);
             this.panel7.TabIndex = 6;
             // 
-            // avatarPtb
+            // btn_taodethi
             // 
-            this.avatarPtb.Location = new System.Drawing.Point(760, 6);
-            this.avatarPtb.Name = "avatarPtb";
-            this.avatarPtb.Size = new System.Drawing.Size(60, 60);
-            this.avatarPtb.TabIndex = 9;
-            this.avatarPtb.TabStop = false;
+            this.btn_taodethi.ForeColor = System.Drawing.Color.Black;
+            this.btn_taodethi.Image = global::Quiz_app.Properties.Resources.Background_xanh_duong_basic;
+            this.btn_taodethi.Location = new System.Drawing.Point(1028, 161);
+            this.btn_taodethi.Name = "btn_taodethi";
+            this.btn_taodethi.Size = new System.Drawing.Size(90, 44);
+            this.btn_taodethi.TabIndex = 7;
+            this.btn_taodethi.Text = "Tạo đề thi";
+            this.btn_taodethi.UseVisualStyleBackColor = true;
+            this.btn_taodethi.Click += new System.EventHandler(this.btn_taodethi_Click);
             // 
             // Form_Chinh
             // 
@@ -238,6 +251,7 @@ namespace Quiz_app.Forms
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1157, 732);
+            this.Controls.Add(this.btn_taodethi);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
@@ -253,8 +267,8 @@ namespace Quiz_app.Forms
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPtb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -277,5 +291,6 @@ namespace Quiz_app.Forms
         private System.Windows.Forms.Label profileLb;
         private System.Windows.Forms.Button button_logout;
         private System.Windows.Forms.PictureBox avatarPtb;
+        private System.Windows.Forms.Button btn_taodethi;
     }
 }

@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using Quiz_app.Classes;
+using Login_Signup.Classes;
+using Quiz_app.Forms;
 
 namespace Quiz_app
 {
@@ -132,7 +134,9 @@ namespace Quiz_app
 
         private void btn_thoat_Click(object sender, EventArgs e)
         {
-            // quay ve Form chinh 
+            Form_Chinh f = new Form_Chinh();
+            this.Close();
+            f.Show();
         }
 
         private void Form1_Load(object sender, EventArgs e)

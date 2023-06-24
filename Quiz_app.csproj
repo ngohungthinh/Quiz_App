@@ -162,15 +162,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dulieunhan.cs" />
-    <Compile Include="Data_DapAn.cs" />
+    <Compile Include="Classes\Dulieunhan.cs" />
+    <Compile Include="Classes\Data_DapAn.cs" />
     <Compile Include="Classes\FirestoreHelper.cs" />
     <Compile Include="Classes\Security.cs" />
     <Compile Include="Classes\UserData.cs" />
-    <Compile Include="Nhapcauhoi.cs">
+    <Compile Include="Forms\Nhapcauhoi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nhapcauhoi.Designer.cs">
+    <Compile Include="Forms\Nhapcauhoi.Designer.cs">
       <DependentUpon>Nhapcauhoi.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Form_Chinh.cs">
@@ -199,7 +199,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Nhapcauhoi.resx">
+    <EmbeddedResource Include="Forms\Nhapcauhoi.resx">
       <DependentUpon>Nhapcauhoi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_Chinh.resx">

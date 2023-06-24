@@ -128,5 +128,12 @@ namespace Quiz_app.Forms
             formProfile.ShowDialog();
             this.Close();
         }
+
+        private void btn_taodethi_Click(object sender, EventArgs e)
+        {
+            Nhapcauhoi f = new Nhapcauhoi();
+            Hide();
+            f.ShowDialog();
+        }
     }
 }
