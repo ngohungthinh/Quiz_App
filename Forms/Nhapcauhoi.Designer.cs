@@ -95,6 +95,7 @@ namespace Quiz_app
             this.dg_cauhoi.Size = new System.Drawing.Size(1065, 588);
             this.dg_cauhoi.TabIndex = 1;
             this.dg_cauhoi.VirtualMode = true;
+            this.dg_cauhoi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_cauhoi_CellContentClick);
             // 
             // radioButton1
             // 
@@ -174,7 +175,6 @@ namespace Quiz_app
             this.btxoa.TabIndex = 27;
             this.btxoa.Text = "Xóa câu hỏi";
             this.btxoa.UseVisualStyleBackColor = true;
-            this.btxoa.Click += new System.EventHandler(this.btxoa_Click);
             // 
             // textBox4
             // 

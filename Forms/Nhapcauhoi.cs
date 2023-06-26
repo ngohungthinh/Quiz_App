@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 using Quiz_app.Classes;
 using Login_Signup.Classes;
 using Quiz_app.Forms;
-
+using Google.Cloud.Firestore;
 namespace Quiz_app
 {
     public partial class Nhapcauhoi : Form
@@ -25,55 +25,48 @@ namespace Quiz_app
         {
             InitializeComponent();
         }
-        FirebaseConfig config = new FirebaseConfig
-        {
-            AuthSecret = "PYI5Qluw9k3eFbArSMqczONfhSzBDcRqPUi4pMCV", // mat khau csdl
-            BasePath = "https://quiz-app-6c6a3-default-rtdb.firebaseio.com/"
-
-        };
         public int i = 0;
 
         private async void btnhap_Click(object sender, EventArgs e)
         {
+           
             if ((richTextBox1.Text == null || textBox1.Text == null || textBox2.Text == null || textBox3.Text == null || textBox4.Text == null) &&
                 (!(radioButton1.Checked) && !(radioButton2.Checked) && !(radioButton3.Checked) && !(radioButton4.Checked)))
             { MessageBox.Show("Vui long nhap du lieu"); }
             else
             {
-                var dulieu = new Data_DapAn
-                {
-                    cauhoi = richTextBox1.Text,
-                    DA1 = textBox1.Text,
-                    DA2 = textBox2.Text,
-                    DA3 = textBox3.Text,
-                    DA4 = textBox4.Text,
-                };
+              
+           //     DocumentReference doRef = db.Collection("Cauhoi_DAdung").Document(txtb_ma_de.Text);
+                //string stt = $"Cau {i}";
+                //CreateCollection(txtb_ma_de.Text, stt)
 
-                if (radioButton1.Checked == true)
-                {
-                    dulieu.DADung = "DA1";
-                }
-                else
-                if (radioButton2.Checked == true)
-                {
-                    dulieu.DADung = "DA2";
-                }
-                else
-                if (radioButton3.Checked == true)
-                {
-                    dulieu.DADung = "DA3";
-                }
-                else
-                if (radioButton4.Checked == true)
-                {
-                    dulieu.DADung = "DA4";
-                }
-                IFirebaseClient client = new FirebaseClient(config);
+                
+             
+           //     IFirebaseClient client = new FirebaseClient(config);
                 if (Int32.TryParse(tbx_stt.Text, out i))
                 {
+                    string stt = $"Câu {i}";
+                    var db = FirestoreHelper.Database;
+                    DocumentReference doRef = db.Collection("Cauhoi_DAdung").Document(txtb_ma_de.Text);
+                    //       string duongdan = $"Cauhoi_DapAn/{txtb_ma_de.Text}/{(i++).ToString()}";
+                    //       FirebaseResponse response = await client.UpdateAsync(duongdan, dulieu);
+                    var dulieu = new Dictionary<string, object>
+                      {
+                        { "Cauhoi", richTextBox1.Text },
+                        { "DA1", textBox1.Text },
+                        { "DA2", textBox2.Text },
+                        { "DA3", textBox3.Text },
+                        { "DA4", textBox4.Text },
+                        {"DAdung",  Checkdapan()}
+                          // Các trường khác tùy ý
+                      };
 
-                    string duongdan = $"Cauhoi_DapAn/{txtb_ma_de.Text}/{(i++).ToString()}";
-                    FirebaseResponse response = await client.UpdateAsync(duongdan, dulieu);
+                    var datagui = new Dictionary<string, object>
+                     {
+                             { stt, dulieu },
+                     };
+
+                    doRef.SetAsync(datagui);
                     MessageBox.Show("Thanh cong");
                     richTextBox1.Text = "";
                     textBox1.Text = "";
@@ -89,18 +82,13 @@ namespace Quiz_app
                         radioButton.Checked = false;
                     }
 
-                    string duongdan1 = $"Cauhoi_DapAn/{txtb_ma_de.Text}/{(i - 1).ToString()}";
-                    FirebaseResponse response1 = await client.GetAsync(duongdan1);
-                    Data_DapAn dulnhan = response1.ResultAs<Data_DapAn>();
-                    var dln = new Data_DapAn()
-                    {
-                        cauhoi = dulieu.cauhoi,
-                        DA1 = dulnhan.DA1,
-                        DA2 = dulnhan.DA2,
-                        DA3 = dulnhan.DA3,
-                        DA4 = dulnhan.DA4,
-                        DADung = dulnhan.DADung
-                    };
+
+                    var dln = new Data_DapAn();
+                    DocumentSnapshot snapshot = await doRef.GetSnapshotAsync();
+                 
+                    //UserData dulnhan = doRef.GetSnapshotAsync().Result.ConvertTo<UserData>();//class trong Classes
+
+
                     DataRow row = dt.NewRow();
                     row["stt"] = i - 1;
                     row["cauhoi"] = dln.cauhoi;
@@ -115,22 +103,31 @@ namespace Quiz_app
             }
         }
 
-        private async void btxoa_Click(object sender, EventArgs e)
-        {
-            string duongdan = $"Cauhoi_DapAn/{ txtb_ma_de.Text}/{(--i).ToString()}";
-            IFirebaseClient client = new FirebaseClient(config);
-            FirebaseResponse response = await client.DeleteAsync(duongdan);
-            // Lấy ra dòng hiện tại của DataGridView
-            DataGridViewRow row = dg_cauhoi.CurrentRow;
+        //private async void btxoa_Click(object sender, EventArgs e)
+        //{
+        //    //string duongdan = $"Cauhoi_DapAn/{ txtb_ma_de.Text}/{(--i).ToString()}";
+        //    //IFirebaseClient client = new FirebaseClient(config);
+        //    //FirebaseResponse response = await client.DeleteAsync(duongdan);
+        //    // Lấy ra dòng hiện tại của DataGridView
+        //    FirestoreDb db = FirestoreDb.Create("member-a1176");
+        //    CollectionReference collectionRef = db.Collection("Cauhoi_DAdung").Document(txtb_ma_de.Text);
+        //    QuerySnapshot snapshot = collectionRef.GetSnapshotAsync().Result;
 
-            // Xóa dòng đó
-            dg_cauhoi.Rows.Remove(row);
+        //    foreach (DocumentSnapshot document in snapshot.Documents)
+        //    {
+        //        document.Reference.DeleteAsync();
+        //    }
 
-            // Lưu thay đổi
-            dg_cauhoi.EndEdit();
-            tbx_stt.Text = (i).ToString();
-            MessageBox.Show("Xóa thành công");
-        }
+        //    DataGridViewRow row = dg_cauhoi.CurrentRow;
+
+        //    // Xóa dòng đó
+        //    dg_cauhoi.Rows.Remove(row);
+
+        //    // Lưu thay đổi
+        //    dg_cauhoi.EndEdit();
+        //    tbx_stt.Text = (i).ToString();
+        //    MessageBox.Show("Xóa thành công");
+        //}
 
         private void btn_thoat_Click(object sender, EventArgs e)
         {
@@ -158,9 +155,34 @@ namespace Quiz_app
 
         }
 
+        public string Checkdapan()
+        {
+            if (radioButton1.Checked == true)
+            {
+                return "DA1";
+            }
+            else
+                if (radioButton2.Checked == true)
+            {
+                return "DA2";
+            }
+            else
+                if (radioButton3.Checked == true)
+            {
+                return "DA3";
+            }
+            else
+                if (radioButton4.Checked == true)
+            {
+                return "DA4";
+            }
+            return "0";
+        }
 
+        private void dg_cauhoi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
-
+        }
 
         //private void button2_Click(object sender, EventArgs e)
         //{
