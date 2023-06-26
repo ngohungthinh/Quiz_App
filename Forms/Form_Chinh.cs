@@ -135,5 +135,12 @@ namespace Quiz_app.Forms
             Hide();
             f.ShowDialog();
         }
+
+        private void btn_choi_Click(object sender, EventArgs e)
+        {
+            Form_Quest f = new Form_Quest();
+            Hide();
+            f.ShowDialog();
+        }
     }
 }
