@@ -409,5 +409,13 @@ namespace Quiz_app.Forms
             }
             LoadQuizzes(quizzes, cnt);
         }
+
+        private void avatarPtb_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form_Profile formProfile = new Form_Profile();
+            formProfile.ShowDialog();
+            this.Close();
+        }
     }
 }

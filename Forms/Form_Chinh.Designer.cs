@@ -116,6 +116,7 @@ namespace Quiz_app.Forms
             this.avatarPtb.Size = new System.Drawing.Size(60, 60);
             this.avatarPtb.TabIndex = 9;
             this.avatarPtb.TabStop = false;
+            this.avatarPtb.Click += new System.EventHandler(this.avatarPtb_Click);
             // 
             // profileLb
             // 

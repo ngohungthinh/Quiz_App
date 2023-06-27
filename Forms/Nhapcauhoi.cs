@@ -80,7 +80,21 @@ namespace Quiz_app
                      };
                     DocumentSnapshot snapshot = await doRef.GetSnapshotAsync();
 
-                    if (snapshot.Exists) { 
+                    if (snapshot.Exists) {
+                        Dictionary<string, object> data = snapshot.ToDictionary();
+                        string creator = "";
+                        foreach (KeyValuePair<string, object> r in data)
+                        {
+                            if (r.Key == "creator")
+                            {
+                                creator = r.Value.ToString();
+                            }
+                        }
+                        if (creator != Form_Chinh.username)
+                        {
+                            MessageBox.Show("Mã đề (Quiz ID) đã tồn tại và thuộc quyền sở hữu của một người dùng khác. Vui lòng chọn lại Mã đề!");
+                            return;
+                        }
                         await doRef.UpdateAsync(datagui);
                     } else
                     {
