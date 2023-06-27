@@ -416,3 +416,4 @@ C:\Users\votru\Quiz_App\bin\Debug\System.Net.Http.Primitives.xml
 C:\Users\votru\Quiz_App\obj\Debug\Quiz_app.csproj.App.config
 C:\Users\votru\Quiz_App\obj\Debug\Quiz_app.Nhapcauhoi.resources
 C:\Users\votru\Quiz_App\obj\Debug\Quiz_app.Form_Quest.resources
+D:\Git\Quiz_App\obj\Debug\Quiz_app.Forms.Quenmatkhau.resources
