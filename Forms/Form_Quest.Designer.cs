@@ -129,6 +129,7 @@
             this.Ansb_cb.TabIndex = 9;
             this.Ansb_cb.Text = "checkBox1";
             this.Ansb_cb.UseVisualStyleBackColor = true;
+            this.Ansb_cb.CheckedChanged += new System.EventHandler(this.Ansb_cb_CheckedChanged);
             // 
             // Ansc_cb
             // 

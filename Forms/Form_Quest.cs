@@ -118,5 +118,15 @@ namespace Quiz_app
             form_Chinh.ShowDialog();
             this.Close();
         }
+
+        private void Ansb_cb_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void quizz_id_tb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

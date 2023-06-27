@@ -96,5 +96,13 @@ namespace Quiz_app.Forms
             f.ShowDialog();
             this.Close();
         }
+
+        private void button_ForgetPass_Click(object sender, EventArgs e)
+        {
+            Quenmatkhau f = new Quenmatkhau();
+            this.Hide();
+            f.ShowDialog();
+            this.Close();
+        }
     }
 }
