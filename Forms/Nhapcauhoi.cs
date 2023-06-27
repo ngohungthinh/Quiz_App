@@ -9,13 +9,17 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using Quiz_app.Classes;
 using Login_Signup.Classes;
 using Quiz_app.Forms;
+using Newtonsoft.Json;
 using Google.Cloud.Firestore;
+using System.Collections;
+
 namespace Quiz_app
 {
     public partial class Nhapcauhoi : Form
@@ -30,7 +34,7 @@ namespace Quiz_app
         private async void btnhap_Click(object sender, EventArgs e)
         {
            
-            if ((richTextBox1.Text == null || textBox1.Text == null || textBox2.Text == null || textBox3.Text == null || textBox4.Text == null) &&
+            if ((image_lb.Text == "" || richTextBox1.Text == null || textBox1.Text == null || textBox2.Text == null || textBox3.Text == null || textBox4.Text == null) &&
                 (!(radioButton1.Checked) && !(radioButton2.Checked) && !(radioButton3.Checked) && !(radioButton4.Checked)))
             { MessageBox.Show("Vui long nhap du lieu"); }
             else
@@ -50,6 +54,10 @@ namespace Quiz_app
                     DocumentReference doRef = db.Collection("Cauhoi_DAdung").Document(txtb_ma_de.Text);
                     //       string duongdan = $"Cauhoi_DapAn/{txtb_ma_de.Text}/{(i++).ToString()}";
                     //       FirebaseResponse response = await client.UpdateAsync(duongdan, dulieu);
+                    // Lay anh minh hoa va conver ve base64
+                    byte[] imageBytes = File.ReadAllBytes(image_lb.Text);
+                    string base64String = Convert.ToBase64String(imageBytes);
+
                     var dulieu = new Dictionary<string, object>
                       {
                         { "Cauhoi", richTextBox1.Text },
@@ -57,17 +65,29 @@ namespace Quiz_app
                         { "DA2", textBox2.Text },
                         { "DA3", textBox3.Text },
                         { "DA4", textBox4.Text },
-                        {"DAdung",  Checkdapan()}
+                        {"DAdung",  Checkdapan()},
+                        {"AnhMinhHoa", base64String }
                           // Các trường khác tùy ý
                       };
 
                     var datagui = new Dictionary<string, object>
                      {
                              { stt, dulieu },
-                     };
+                            { "creator", Form_Chinh.username },
+                        { "DateTime", DateTime.Now.ToString() }
 
-                    doRef.SetAsync(datagui);
+                     };
+                    DocumentSnapshot snapshot = await doRef.GetSnapshotAsync();
+
+                    if (snapshot.Exists) { 
+                        await doRef.UpdateAsync(datagui);
+                    } else
+                    {
+                        await doRef.SetAsync(datagui);
+                    }
+
                     MessageBox.Show("Thanh cong");
+
                     richTextBox1.Text = "";
                     textBox1.Text = "";
                     textBox2.Text = "";
@@ -82,23 +102,40 @@ namespace Quiz_app
                         radioButton.Checked = false;
                     }
 
+                    snapshot = await doRef.GetSnapshotAsync();
 
-                    var dln = new Data_DapAn();
-                    DocumentSnapshot snapshot = await doRef.GetSnapshotAsync();
-                 
-                    //UserData dulnhan = doRef.GetSnapshotAsync().Result.ConvertTo<UserData>();//class trong Classes
+                    if (snapshot.Exists)
+                    {
+                        dt.Rows.Clear();
+                        var cnt = 1;
+                        Dictionary<string, object> data = snapshot.ToDictionary();
+                        foreach (KeyValuePair<string, object> r in data)
+                        {
+                            if (r.Key == "creator" || r.Key == "DateTime") continue;
+                            string str = JsonConvert.SerializeObject(r.Value);
+                            Data_DapAn data_dapan = JsonConvert.DeserializeObject<Data_DapAn>(str);
+                            
+                            try
+                            {
+                                DataRow row = dt.NewRow();
+                                row["stt"] = cnt.ToString();
+                                row["Cauhoi"] = data_dapan.Cauhoi;
+                                row["DA1"] = data_dapan.DA1;
+                                row["DA2"] = data_dapan.DA2;
+                                row["DA3"] = data_dapan.DA3;
+                                row["DA4"] = data_dapan.DA4;
+                                row["DAdung"] = data_dapan.DADung;
+                                row["AnhMinhHoa"] = data_dapan.AnhMinhHoa;
+                                dt.Rows.Add(row);
+                                cnt++;
+                            } catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
+                        }
+                    }
 
-
-                    DataRow row = dt.NewRow();
-                    row["stt"] = i - 1;
-                    row["cauhoi"] = dln.cauhoi;
-                    row["DA1"] = dln.DA1;
-                    row["DA2"] = dln.DA2;
-                    row["DA3"] = dln.DA3;
-                    row["DA4"] = dln.DA4;
-                    row["DAdung"] = dln.DADung;
-                    dt.Rows.Add(row);
-                    tbx_stt.Text = (i).ToString();
+                    tbx_stt.Text = (i + 1).ToString();
                 }
             }
         }
@@ -131,13 +168,17 @@ namespace Quiz_app
 
         private void btn_thoat_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Form_Chinh f = new Form_Chinh();
+            f.ShowDialog();
             this.Close();
-            f.Show();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
         {
+            /*var db = FirestoreHelper.Database;
+            DocumentReference doRef = db.Collection("Cauhoi_DAdung").Document(txtb_ma_de.Text);
+            DocumentSnapshot snapshot = await doRef.GetSnapshotAsync();*/
             dt.Columns.Add("stt");
             dt.Columns.Add("cauhoi");
             dt.Columns.Add("DA1");
@@ -145,6 +186,7 @@ namespace Quiz_app
             dt.Columns.Add("DA3");
             dt.Columns.Add("DA4");
             dt.Columns.Add("Dadung");
+            dt.Columns.Add("AnhMinhHoa");
 
 
             dg_cauhoi.DataSource = dt;
@@ -152,6 +194,41 @@ namespace Quiz_app
             dg_cauhoi.Columns[0].HeaderText = "Stt";
             dg_cauhoi.Columns[1].HeaderText = "Câu hỏi";
             dg_cauhoi.Columns[6].HeaderText = "Đáp án đúng";
+            /*
+            if (snapshot.Exists)
+            {
+                var cnt = 1;
+                Dictionary<string, object> data = snapshot.ToDictionary();
+                foreach (KeyValuePair<string, object> r in data)
+                {
+                    if (r.Key == "creator" || r.Key == "DateTime") continue;
+                    string str = JsonConvert.SerializeObject(r.Value);
+                    Data_DapAn data_dapan = JsonConvert.DeserializeObject<Data_DapAn>(str);
+
+                    try
+                    {
+                        DataRow row = dt.NewRow();
+                        row["stt"] = cnt.ToString();
+                        row["Cauhoi"] = data_dapan.Cauhoi;
+                        row["DA1"] = data_dapan.DA1;
+                        row["DA2"] = data_dapan.DA2;
+                        row["DA3"] = data_dapan.DA3;
+                        row["DA4"] = data_dapan.DA4;
+                        row["DAdung"] = data_dapan.DADung;
+                        row["AnhMinhHoa"] = data_dapan.AnhMinhHoa;
+                        dt.Rows.Add(row);
+                        cnt++;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Khong ton tai!");
+            }*/
 
         }
 
@@ -182,6 +259,18 @@ namespace Quiz_app
         private void dg_cauhoi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void load_img_btn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog avatar = new OpenFileDialog();
+            avatar.Title = "Select image";
+            avatar.Filter = "Image Files(*.jpg) | *.jpg";
+
+            if (avatar.ShowDialog() == DialogResult.OK)
+            {
+                image_lb.Text = avatar.FileName;
+            }
         }
 
         //private void button2_Click(object sender, EventArgs e)

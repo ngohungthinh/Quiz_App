@@ -55,7 +55,9 @@ namespace Quiz_app.Forms
             {
                 button_logout.Visible = false;
                 profileLb.Visible = false;
+                btn_taodethi.Visible = false;
                 avatarPtb.Visible = false;
+                btn_join.Visible = false;
             }
         }
 
@@ -138,7 +140,7 @@ namespace Quiz_app.Forms
 
         private void btn_choi_Click(object sender, EventArgs e)
         {
-            Form_Quest f = new Form_Quest();
+            Form_Quest f = new Form_Quest(969696);
             Hide();
             f.ShowDialog();
         }

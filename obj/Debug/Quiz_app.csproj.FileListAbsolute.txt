@@ -402,3 +402,17 @@ D:\Git\Quiz_App\obj\Debug\Quiz_app.csproj.CopyComplete
 D:\Git\Quiz_App\obj\Debug\Quiz_app.exe
 D:\Git\Quiz_App\obj\Debug\Quiz_app.pdb
 D:\Git\Quiz_App\obj\Debug\Quiz_app.Form_Quest.resources
+C:\Users\votru\Quiz_App\bin\Debug\FireSharp.dll
+C:\Users\votru\Quiz_App\bin\Debug\Microsoft.Threading.Tasks.dll
+C:\Users\votru\Quiz_App\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+C:\Users\votru\Quiz_App\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+C:\Users\votru\Quiz_App\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\votru\Quiz_App\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\votru\Quiz_App\bin\Debug\Microsoft.Threading.Tasks.xml
+C:\Users\votru\Quiz_App\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+C:\Users\votru\Quiz_App\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+C:\Users\votru\Quiz_App\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\votru\Quiz_App\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\votru\Quiz_App\obj\Debug\Quiz_app.csproj.App.config
+C:\Users\votru\Quiz_App\obj\Debug\Quiz_app.Nhapcauhoi.resources
+C:\Users\votru\Quiz_App\obj\Debug\Quiz_app.Form_Quest.resources

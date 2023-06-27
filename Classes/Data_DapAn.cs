@@ -11,7 +11,7 @@ namespace Quiz_app.Classes
     {
        
         [FirestoreProperty]
-        public string cauhoi { get; set; }
+        public string Cauhoi { get; set; }
         [FirestoreProperty]
         public string DA1 { get; set; }
         [FirestoreProperty]
@@ -22,5 +22,7 @@ namespace Quiz_app.Classes
         public string DA4 { get; set; }
         [FirestoreProperty]
         public string DADung { get; set; }
+        [FirestoreProperty]
+        public string AnhMinhHoa { get; set; }
     }
 }

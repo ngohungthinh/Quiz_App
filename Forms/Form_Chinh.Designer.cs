@@ -46,7 +46,7 @@ namespace Quiz_app.Forms
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btn_taodethi = new System.Windows.Forms.Button();
-            this.btn_choi = new System.Windows.Forms.Button();
+            this.btn_join = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPtb)).BeginInit();
@@ -242,22 +242,22 @@ namespace Quiz_app.Forms
             this.btn_taodethi.Name = "btn_taodethi";
             this.btn_taodethi.Size = new System.Drawing.Size(90, 44);
             this.btn_taodethi.TabIndex = 7;
-            this.btn_taodethi.Text = "Tạo đề thi";
+            this.btn_taodethi.Text = "Quản lý quizz";
             this.btn_taodethi.UseVisualStyleBackColor = true;
             this.btn_taodethi.Click += new System.EventHandler(this.btn_taodethi_Click);
             // 
-            // btn_choi
+            // btn_join
             // 
-            this.btn_choi.BackColor = System.Drawing.Color.Black;
-            this.btn_choi.ForeColor = System.Drawing.Color.Black;
-            this.btn_choi.Image = global::Quiz_app.Properties.Resources.Background_xanh_duong_basic;
-            this.btn_choi.Location = new System.Drawing.Point(107, 161);
-            this.btn_choi.Name = "btn_choi";
-            this.btn_choi.Size = new System.Drawing.Size(90, 44);
-            this.btn_choi.TabIndex = 9;
-            this.btn_choi.Text = "Chơi";
-            this.btn_choi.UseVisualStyleBackColor = false;
-            this.btn_choi.Click += new System.EventHandler(this.btn_choi_Click);
+            this.btn_join.BackColor = System.Drawing.Color.Black;
+            this.btn_join.ForeColor = System.Drawing.Color.Black;
+            this.btn_join.Image = global::Quiz_app.Properties.Resources.Background_xanh_duong_basic;
+            this.btn_join.Location = new System.Drawing.Point(107, 161);
+            this.btn_join.Name = "btn_join";
+            this.btn_join.Size = new System.Drawing.Size(90, 44);
+            this.btn_join.TabIndex = 9;
+            this.btn_join.Text = "Tham gia quiz";
+            this.btn_join.UseVisualStyleBackColor = false;
+            this.btn_join.Click += new System.EventHandler(this.btn_choi_Click);
             // 
             // Form_Chinh
             // 
@@ -265,7 +265,7 @@ namespace Quiz_app.Forms
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1157, 732);
-            this.Controls.Add(this.btn_choi);
+            this.Controls.Add(this.btn_join);
             this.Controls.Add(this.btn_taodethi);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
@@ -307,6 +307,6 @@ namespace Quiz_app.Forms
         private System.Windows.Forms.Button button_logout;
         private System.Windows.Forms.PictureBox avatarPtb;
         private System.Windows.Forms.Button btn_taodethi;
-        private System.Windows.Forms.Button btn_choi;
+        private System.Windows.Forms.Button btn_join;
     }
 }

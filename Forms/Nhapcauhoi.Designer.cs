@@ -53,6 +53,8 @@ namespace Quiz_app
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.image_lb = new System.Windows.Forms.Label();
+            this.load_img_btn = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_cauhoi)).BeginInit();
@@ -111,7 +113,7 @@ namespace Quiz_app
             // tbx_stt
             // 
             this.tbx_stt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbx_stt.Location = new System.Drawing.Point(1018, 35);
+            this.tbx_stt.Location = new System.Drawing.Point(1063, 35);
             this.tbx_stt.Name = "tbx_stt";
             this.tbx_stt.Size = new System.Drawing.Size(100, 27);
             this.tbx_stt.TabIndex = 30;
@@ -122,9 +124,9 @@ namespace Quiz_app
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(861, 38);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 20);
+            this.label3.Size = new System.Drawing.Size(150, 20);
             this.label3.TabIndex = 29;
-            this.label3.Text = "Nhập số thứ tự";
+            this.label3.Text = "Nhập số thứ tự câu";
             // 
             // groupBox3
             // 
@@ -291,6 +293,8 @@ namespace Quiz_app
             // panel1
             // 
             this.panel1.BackgroundImage = global::Quiz_app.Properties.Resources.Background_xanh_duong_basic;
+            this.panel1.Controls.Add(this.image_lb);
+            this.panel1.Controls.Add(this.load_img_btn);
             this.panel1.Controls.Add(this.tbx_stt);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.groupBox3);
@@ -304,6 +308,24 @@ namespace Quiz_app
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1956, 900);
             this.panel1.TabIndex = 1;
+            // 
+            // image_lb
+            // 
+            this.image_lb.AutoSize = true;
+            this.image_lb.Location = new System.Drawing.Point(64, 604);
+            this.image_lb.Name = "image_lb";
+            this.image_lb.Size = new System.Drawing.Size(0, 16);
+            this.image_lb.TabIndex = 32;
+            // 
+            // load_img_btn
+            // 
+            this.load_img_btn.Location = new System.Drawing.Point(60, 553);
+            this.load_img_btn.Name = "load_img_btn";
+            this.load_img_btn.Size = new System.Drawing.Size(129, 23);
+            this.load_img_btn.TabIndex = 31;
+            this.load_img_btn.Text = "Tải ảnh minh họa";
+            this.load_img_btn.UseVisualStyleBackColor = true;
+            this.load_img_btn.Click += new System.EventHandler(this.load_img_btn_Click);
             // 
             // richTextBox1
             // 
@@ -360,5 +382,7 @@ namespace Quiz_app
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label image_lb;
+        private System.Windows.Forms.Button load_img_btn;
     }
 }
