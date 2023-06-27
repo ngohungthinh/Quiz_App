@@ -56,6 +56,8 @@ namespace Quiz_app
             this.image_lb = new System.Windows.Forms.Label();
             this.load_img_btn = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.quiz_name_lb = new System.Windows.Forms.Label();
+            this.quizz_name_tb = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_cauhoi)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -293,6 +295,8 @@ namespace Quiz_app
             // panel1
             // 
             this.panel1.BackgroundImage = global::Quiz_app.Properties.Resources.Background_xanh_duong_basic;
+            this.panel1.Controls.Add(this.quizz_name_tb);
+            this.panel1.Controls.Add(this.quiz_name_lb);
             this.panel1.Controls.Add(this.image_lb);
             this.panel1.Controls.Add(this.load_img_btn);
             this.panel1.Controls.Add(this.tbx_stt);
@@ -334,6 +338,22 @@ namespace Quiz_app
             this.richTextBox1.Size = new System.Drawing.Size(301, 156);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
+            // 
+            // quiz_name_lb
+            // 
+            this.quiz_name_lb.AutoSize = true;
+            this.quiz_name_lb.Location = new System.Drawing.Point(547, 73);
+            this.quiz_name_lb.Name = "quiz_name_lb";
+            this.quiz_name_lb.Size = new System.Drawing.Size(58, 16);
+            this.quiz_name_lb.TabIndex = 33;
+            this.quiz_name_lb.Text = "Tên quiz";
+            // 
+            // quizz_name_tb
+            // 
+            this.quizz_name_tb.Location = new System.Drawing.Point(638, 73);
+            this.quizz_name_tb.Name = "quizz_name_tb";
+            this.quizz_name_tb.Size = new System.Drawing.Size(196, 22);
+            this.quizz_name_tb.TabIndex = 34;
             // 
             // Nhapcauhoi
             // 
@@ -384,5 +404,7 @@ namespace Quiz_app
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label image_lb;
         private System.Windows.Forms.Button load_img_btn;
+        private System.Windows.Forms.TextBox quizz_name_tb;
+        private System.Windows.Forms.Label quiz_name_lb;
     }
 }

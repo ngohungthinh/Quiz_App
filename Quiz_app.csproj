@@ -165,6 +165,7 @@
     <Compile Include="Classes\Dulieunhan.cs" />
     <Compile Include="Classes\Data_DapAn.cs" />
     <Compile Include="Classes\FirestoreHelper.cs" />
+    <Compile Include="Classes\QuizzData.cs" />
     <Compile Include="Classes\Security.cs" />
     <Compile Include="Classes\UserData.cs" />
     <Compile Include="Forms\Nhapcauhoi.cs">

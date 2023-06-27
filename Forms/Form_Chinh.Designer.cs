@@ -46,7 +46,9 @@ namespace Quiz_app.Forms
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btn_taodethi = new System.Windows.Forms.Button();
-            this.btn_join = new System.Windows.Forms.Button();
+            this.showMyQuizBtn = new System.Windows.Forms.Button();
+            this.search_btn = new System.Windows.Forms.Button();
+            this.search_tb = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPtb)).BeginInit();
@@ -246,18 +248,33 @@ namespace Quiz_app.Forms
             this.btn_taodethi.UseVisualStyleBackColor = true;
             this.btn_taodethi.Click += new System.EventHandler(this.btn_taodethi_Click);
             // 
-            // btn_join
+            // showMyQuizBtn
             // 
-            this.btn_join.BackColor = System.Drawing.Color.Black;
-            this.btn_join.ForeColor = System.Drawing.Color.Black;
-            this.btn_join.Image = global::Quiz_app.Properties.Resources.Background_xanh_duong_basic;
-            this.btn_join.Location = new System.Drawing.Point(107, 161);
-            this.btn_join.Name = "btn_join";
-            this.btn_join.Size = new System.Drawing.Size(90, 44);
-            this.btn_join.TabIndex = 9;
-            this.btn_join.Text = "Tham gia quiz";
-            this.btn_join.UseVisualStyleBackColor = false;
-            this.btn_join.Click += new System.EventHandler(this.btn_choi_Click);
+            this.showMyQuizBtn.Location = new System.Drawing.Point(56, 172);
+            this.showMyQuizBtn.Name = "showMyQuizBtn";
+            this.showMyQuizBtn.Size = new System.Drawing.Size(156, 23);
+            this.showMyQuizBtn.TabIndex = 8;
+            this.showMyQuizBtn.Text = "Hiển thị quiz của tôi";
+            this.showMyQuizBtn.UseVisualStyleBackColor = true;
+            this.showMyQuizBtn.Click += new System.EventHandler(this.showMyQuizBtn_Click);
+            // 
+            // search_btn
+            // 
+            this.search_btn.Location = new System.Drawing.Point(56, 222);
+            this.search_btn.Name = "search_btn";
+            this.search_btn.Size = new System.Drawing.Size(103, 23);
+            this.search_btn.TabIndex = 9;
+            this.search_btn.Text = "Tìm kiếm quiz";
+            this.search_btn.UseVisualStyleBackColor = true;
+            this.search_btn.Click += new System.EventHandler(this.search_btn_Click);
+            // 
+            // search_tb
+            // 
+            this.search_tb.Location = new System.Drawing.Point(165, 222);
+            this.search_tb.Name = "search_tb";
+            this.search_tb.Size = new System.Drawing.Size(172, 22);
+            this.search_tb.TabIndex = 10;
+            this.search_tb.Text = "Tên quiz";
             // 
             // Form_Chinh
             // 
@@ -265,7 +282,9 @@ namespace Quiz_app.Forms
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1157, 732);
-            this.Controls.Add(this.btn_join);
+            this.Controls.Add(this.search_tb);
+            this.Controls.Add(this.search_btn);
+            this.Controls.Add(this.showMyQuizBtn);
             this.Controls.Add(this.btn_taodethi);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
@@ -285,6 +304,7 @@ namespace Quiz_app.Forms
             ((System.ComponentModel.ISupportInitialize)(this.avatarPtb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -307,6 +327,8 @@ namespace Quiz_app.Forms
         private System.Windows.Forms.Button button_logout;
         private System.Windows.Forms.PictureBox avatarPtb;
         private System.Windows.Forms.Button btn_taodethi;
-        private System.Windows.Forms.Button btn_join;
+        private System.Windows.Forms.Button showMyQuizBtn;
+        private System.Windows.Forms.Button search_btn;
+        private System.Windows.Forms.TextBox search_tb;
     }
 }

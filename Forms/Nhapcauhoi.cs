@@ -74,7 +74,8 @@ namespace Quiz_app
                      {
                              { stt, dulieu },
                             { "creator", Form_Chinh.username },
-                        { "DateTime", DateTime.Now.ToString() }
+                        { "DateTime", DateTime.Now.ToString() },
+                        {"TenQuiz", quizz_name_tb.Text },
 
                      };
                     DocumentSnapshot snapshot = await doRef.GetSnapshotAsync();
@@ -111,7 +112,7 @@ namespace Quiz_app
                         Dictionary<string, object> data = snapshot.ToDictionary();
                         foreach (KeyValuePair<string, object> r in data)
                         {
-                            if (r.Key == "creator" || r.Key == "DateTime") continue;
+                            if (r.Key == "creator" || r.Key == "DateTime" || r.Key == "TenQuiz") continue;
                             string str = JsonConvert.SerializeObject(r.Value);
                             Data_DapAn data_dapan = JsonConvert.DeserializeObject<Data_DapAn>(str);
                             
