@@ -16,5 +16,7 @@ namespace Login_Signup.Classes
         public string Password { get; set; }
         [FirestoreProperty]
         public string Name { get; set; }
+        [FirestoreProperty]
+        public string Avatar { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace Quiz_app.Forms
 {
-    partial class Form_Chinh
+    partial class Form_Chinh_After_Login
     {
         /// <summary>
         /// Required designer variable.
@@ -33,20 +33,22 @@ namespace Quiz_app.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.label_Close = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.avatarPtb = new Quiz_app.CircularPictureBox();
+            this.button_Logout = new System.Windows.Forms.Button();
+            this.profileLb = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button_signup = new System.Windows.Forms.Button();
-            this.button_login = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.button_TimQuiz = new System.Windows.Forms.Button();
-            this.textBox_SearchQuiz = new System.Windows.Forms.TextBox();
             this.button_TaoQuiz = new System.Windows.Forms.Button();
+            this.button_Start = new System.Windows.Forms.Button();
+            this.textBox_SearchQuiz = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarPtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,15 +93,57 @@ namespace Quiz_app.Forms
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(65)))));
+            this.panel2.Controls.Add(this.avatarPtb);
+            this.panel2.Controls.Add(this.button_Logout);
+            this.panel2.Controls.Add(this.profileLb);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.button_signup);
-            this.panel2.Controls.Add(this.button_login);
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 30);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1157, 72);
             this.panel2.TabIndex = 1;
+            // 
+            // avatarPtb
+            // 
+            this.avatarPtb.Image = global::Quiz_app.Properties.Resources.avata_2;
+            this.avatarPtb.Location = new System.Drawing.Point(711, 6);
+            this.avatarPtb.Name = "avatarPtb";
+            this.avatarPtb.Size = new System.Drawing.Size(60, 60);
+            this.avatarPtb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.avatarPtb.TabIndex = 45;
+            this.avatarPtb.TabStop = false;
+            this.avatarPtb.Click += new System.EventHandler(this.avatarPtb_Click);
+            // 
+            // button_Logout
+            // 
+            this.button_Logout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_Logout.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_Logout.FlatAppearance.BorderSize = 2;
+            this.button_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Logout.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Logout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_Logout.Location = new System.Drawing.Point(1018, 17);
+            this.button_Logout.Name = "button_Logout";
+            this.button_Logout.Size = new System.Drawing.Size(105, 35);
+            this.button_Logout.TabIndex = 44;
+            this.button_Logout.Text = "Logout";
+            this.button_Logout.UseVisualStyleBackColor = true;
+            this.button_Logout.Click += new System.EventHandler(this.button_Logout_Click);
+            // 
+            // profileLb
+            // 
+            this.profileLb.AutoSize = true;
+            this.profileLb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.profileLb.Font = new System.Drawing.Font("Montserrat SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.profileLb.Location = new System.Drawing.Point(777, 21);
+            this.profileLb.Name = "profileLb";
+            this.profileLb.Size = new System.Drawing.Size(173, 28);
+            this.profileLb.TabIndex = 43;
+            this.profileLb.Text = "Ngô Hùng Thịnh";
+            this.profileLb.Click += new System.EventHandler(this.avatarPtb_Click);
             // 
             // pictureBox1
             // 
@@ -111,7 +155,6 @@ namespace Quiz_app.Forms
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
-//            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -124,38 +167,6 @@ namespace Quiz_app.Forms
             this.label1.Size = new System.Drawing.Size(228, 26);
             this.label1.TabIndex = 2;
             this.label1.Text = "Oh My Quiz!";
-//            this.label1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // button_signup
-            // 
-            this.button_signup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_signup.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button_signup.FlatAppearance.BorderSize = 2;
-            this.button_signup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_signup.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_signup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button_signup.Location = new System.Drawing.Point(1013, 17);
-            this.button_signup.Name = "button_signup";
-            this.button_signup.Size = new System.Drawing.Size(105, 35);
-            this.button_signup.TabIndex = 4;
-            this.button_signup.Text = "Đăng kí";
-            this.button_signup.UseVisualStyleBackColor = true;
-            this.button_signup.Click += new System.EventHandler(this.button_signup_Click);
-            // 
-            // button_login
-            // 
-            this.button_login.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_login.FlatAppearance.BorderSize = 2;
-            this.button_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_login.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_login.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button_login.Location = new System.Drawing.Point(885, 17);
-            this.button_login.Name = "button_login";
-            this.button_login.Size = new System.Drawing.Size(105, 35);
-            this.button_login.TabIndex = 3;
-            this.button_login.Text = "Đăng nhập";
-            this.button_login.UseVisualStyleBackColor = true;
-            this.button_login.Click += new System.EventHandler(this.button_login_Click);
             // 
             // panel3
             // 
@@ -193,24 +204,38 @@ namespace Quiz_app.Forms
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel7.Location = new System.Drawing.Point(0, 101);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1157, 1);
             this.panel7.TabIndex = 6;
             // 
-            // button_TimQuiz
+            // button_TaoQuiz
             // 
-            this.button_TimQuiz.BackColor = System.Drawing.Color.SeaShell;
-            this.button_TimQuiz.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_TimQuiz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_TimQuiz.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_TimQuiz.Location = new System.Drawing.Point(462, 134);
-            this.button_TimQuiz.Name = "button_TimQuiz";
-            this.button_TimQuiz.Size = new System.Drawing.Size(122, 27);
-            this.button_TimQuiz.TabIndex = 8;
-            this.button_TimQuiz.Text = "Tìm Quiz";
-            this.button_TimQuiz.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button_TimQuiz.UseVisualStyleBackColor = false;
+            this.button_TaoQuiz.BackColor = System.Drawing.Color.Brown;
+            this.button_TaoQuiz.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_TaoQuiz.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_TaoQuiz.ForeColor = System.Drawing.Color.White;
+            this.button_TaoQuiz.Location = new System.Drawing.Point(1012, 126);
+            this.button_TaoQuiz.Name = "button_TaoQuiz";
+            this.button_TaoQuiz.Size = new System.Drawing.Size(121, 39);
+            this.button_TaoQuiz.TabIndex = 9;
+            this.button_TaoQuiz.Text = "Tạo Quiz";
+            this.button_TaoQuiz.UseVisualStyleBackColor = false;
+            // 
+            // button_Start
+            // 
+            this.button_Start.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_Start.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_Start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Start.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Start.Location = new System.Drawing.Point(462, 134);
+            this.button_Start.Name = "button_Start";
+            this.button_Start.Size = new System.Drawing.Size(122, 27);
+            this.button_Start.TabIndex = 8;
+            this.button_Start.Text = "Tìm Quiz";
+            this.button_Start.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button_Start.UseVisualStyleBackColor = false;
             // 
             // textBox_SearchQuiz
             // 
@@ -225,28 +250,14 @@ namespace Quiz_app.Forms
             this.textBox_SearchQuiz.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_SearchQuiz_MouseClick);
             this.textBox_SearchQuiz.Leave += new System.EventHandler(this.textBox_SearchQuiz_Leave);
             // 
-            // button_TaoQuiz
-            // 
-            this.button_TaoQuiz.BackColor = System.Drawing.Color.Brown;
-            this.button_TaoQuiz.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_TaoQuiz.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_TaoQuiz.ForeColor = System.Drawing.Color.White;
-            this.button_TaoQuiz.Location = new System.Drawing.Point(1013, 126);
-            this.button_TaoQuiz.Name = "button_TaoQuiz";
-            this.button_TaoQuiz.Size = new System.Drawing.Size(110, 39);
-            this.button_TaoQuiz.TabIndex = 9;
-            this.button_TaoQuiz.Text = "Tạo Quiz";
-            this.button_TaoQuiz.UseVisualStyleBackColor = false;
-            this.button_TaoQuiz.Click += new System.EventHandler(this.button_TaoQuiz_Click);
-            // 
-            // Form_Chinh
+            // Form_Chinh_After_Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1157, 732);
             this.Controls.Add(this.button_TaoQuiz);
-            this.Controls.Add(this.button_TimQuiz);
+            this.Controls.Add(this.button_Start);
             this.Controls.Add(this.textBox_SearchQuiz);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
@@ -256,13 +267,15 @@ namespace Quiz_app.Forms
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form_Chinh";
+            this.Name = "Form_Chinh_After_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form_Chinh_After_Login_onLoad);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarPtb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -273,8 +286,6 @@ namespace Quiz_app.Forms
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button_login;
-        private System.Windows.Forms.Button button_signup;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label_Close;
@@ -284,8 +295,11 @@ namespace Quiz_app.Forms
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button button_TimQuiz;
-        private System.Windows.Forms.TextBox textBox_SearchQuiz;
         private System.Windows.Forms.Button button_TaoQuiz;
+        private System.Windows.Forms.Button button_Start;
+        private System.Windows.Forms.TextBox textBox_SearchQuiz;
+        private CircularPictureBox avatarPtb;
+        private System.Windows.Forms.Button button_Logout;
+        private System.Windows.Forms.Label profileLb;
     }
 }

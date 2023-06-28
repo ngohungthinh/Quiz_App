@@ -18,7 +18,6 @@ namespace Quiz_app.Forms
         {
             InitializeComponent();
         }
-
         public Point mouseLocation;
         private void mouse_Down(object sender, MouseEventArgs e)
         {
@@ -42,11 +41,20 @@ namespace Quiz_app.Forms
         {
             Application.Exit();
         }
+        //-----------------------------------------------------------------
 
         private void button_signup_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form_Register f = new Form_Register();
+            f.ShowDialog();
+            this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form_Chinh f = new Form_Chinh();
             f.ShowDialog();
             this.Close();
         }
@@ -71,6 +79,11 @@ namespace Quiz_app.Forms
                     if (password == Security.Decrypt(data.Password))
                     {
                         MessageBox.Show("Login Success");
+                        Form_Chinh_After_Login.username = email;
+                        this.Hide();
+                        Form_Chinh_After_Login formChinh = new Form_Chinh_After_Login();
+                        formChinh.ShowDialog();
+                        this.Close();
                     }
                     else
                         MessageBox.Show("Login Failed");
@@ -82,14 +95,6 @@ namespace Quiz_app.Forms
             {
                 label_Nhap_sai.Text = "Vui lòng kiểm tra lại thông tin!";
             }
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form_Chinh f = new Form_Chinh();
-            f.ShowDialog();
-            this.Close();
         }
     }
 }

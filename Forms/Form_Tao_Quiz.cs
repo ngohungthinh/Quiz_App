@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Quiz_app.Forms
 {
-    public partial class Form_Chinh : Form
+    public partial class Form_Tao_Quiz : Form
     {
-        public Form_Chinh()
+        public Form_Tao_Quiz()
         {
             InitializeComponent();
         }
@@ -39,48 +39,30 @@ namespace Quiz_app.Forms
         {
             Application.Exit();
         }
-        //--------------------------------------------------------------------------
-        bool isChangetextBox_SearchQuiz = false;
-        private void textBox_SearchQuiz_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (isChangetextBox_SearchQuiz == false)
-            {
-                textBox_SearchQuiz.Text = "";
-                isChangetextBox_SearchQuiz = true;
-            }
-        }
-
-        private void textBox_SearchQuiz_Leave(object sender, EventArgs e)
-        {
-            if (textBox_SearchQuiz.Text == "")
-            {
-                textBox_SearchQuiz.Text = "Nhập tên.....";
-                isChangetextBox_SearchQuiz = false;
-            }
-        }
         //---------------------------------------------------------------------------
-        private void button_login_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form_Login f = new Form_Login();
+            Form_Chinh_After_Login f = new Form_Chinh_After_Login();
             f.ShowDialog();
             this.Close();
         }
 
-        private void button_signup_Click(object sender, EventArgs e)
+        private void button_Logout_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form_Register f = new Form_Register();
-            f.ShowDialog();
+            Form_Chinh form_Chinh = new Form_Chinh();
+            form_Chinh.ShowDialog();
             this.Close();
         }
-        private void button_TaoQuiz_Click(object sender, EventArgs e)
+
+        private void avatarPtb_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form_Login f = new Form_Login();
-            f.ShowDialog();
+            Form_Profile formProfile = new Form_Profile();
+            formProfile.ShowDialog();
             this.Close();
         }
-        //----------------------------------------------------------------------------
+        //------------------------------------------------------------------------------
     }
 }

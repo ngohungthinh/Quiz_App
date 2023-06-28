@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Google.Cloud.Firestore;
+using Login_Signup.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +13,10 @@ using System.Windows.Forms;
 
 namespace Quiz_app.Forms
 {
-    public partial class Form_Chinh : Form
+    public partial class Form_Chinh_After_Login : Form
     {
-        public Form_Chinh()
+        public static string username { get; set; }
+        public Form_Chinh_After_Login()
         {
             InitializeComponent();
         }
@@ -39,7 +43,7 @@ namespace Quiz_app.Forms
         {
             Application.Exit();
         }
-        //--------------------------------------------------------------------------
+        //-------------------------------------------------------------------------
         bool isChangetextBox_SearchQuiz = false;
         private void textBox_SearchQuiz_MouseClick(object sender, MouseEventArgs e)
         {
@@ -59,28 +63,40 @@ namespace Quiz_app.Forms
             }
         }
         //---------------------------------------------------------------------------
-        private void button_login_Click(object sender, EventArgs e)
+        private void avatarPtb_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form_Login f = new Form_Login();
-            f.ShowDialog();
+            Form_Profile formProfile = new Form_Profile();
+            formProfile.ShowDialog();
             this.Close();
         }
 
-        private void button_signup_Click(object sender, EventArgs e)
+        private void button_Logout_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form_Register f = new Form_Register();
-            f.ShowDialog();
+            Form_Chinh form_Chinh = new Form_Chinh();
+            form_Chinh.ShowDialog();
             this.Close();
         }
-        private void button_TaoQuiz_Click(object sender, EventArgs e)
+        //-----------------------------------------------------------------------------
+        public async void Form_Chinh_After_Login_onLoad(object sender, EventArgs e)
         {
-            this.Hide();
-            Form_Login f = new Form_Login();
-            f.ShowDialog();
-            this.Close();
+            var db = FirestoreHelper.Database;
+            // Load User
+            DocumentReference docRef = db.Collection("UserData").Document(username);
+            DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
+            UserData userData = null;
+            if (snapshot.Exists)
+            {
+                userData = snapshot.ConvertTo<UserData>();
+            }
+            profileLb.Text = userData.Name;
+            byte[] imageBytes = Convert.FromBase64String(userData.Avatar);
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                Image image = Image.FromStream(ms);
+                avatarPtb.Image = image.GetThumbnailImage(60, 60, null, IntPtr.Zero);
+            }
         }
-        //----------------------------------------------------------------------------
     }
 }

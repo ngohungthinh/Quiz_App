@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,7 +44,7 @@ namespace Quiz_app.Forms
         {
             Application.Exit();
         }
-
+        //-----------------------------------------------------------------------------------
         private void button_login_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -50,6 +52,15 @@ namespace Quiz_app.Forms
             f.ShowDialog();
             this.Close();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form_Chinh f = new Form_Chinh();
+            f.ShowDialog();
+            this.Close();
+        }
+
         private UserData GetWriteData()
         {
 
@@ -58,11 +69,22 @@ namespace Quiz_app.Forms
             password = Security.Encrypt(password);
             string name = textBoxName.Text.Trim();
 
+            // Profile picture
+            Image image = avatarPtb.Image;
+            byte[] imageBytes;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                    image.Save(ms, ImageFormat.Png);
+                    imageBytes = ms.ToArray();
+            }
+            string base64String = Convert.ToBase64String(imageBytes);
+
             return new UserData()
             {
                 Email = email,
                 Password = password,
-                Name = name
+                Name = name,
+                Avatar = base64String
             };
         }
 
@@ -106,12 +128,16 @@ namespace Quiz_app.Forms
             else
                 return false;
         }
-        private void pictureBox1_Click(object sender, EventArgs e)
+
+        private void loadAvatarBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form_Chinh f = new Form_Chinh();
-            f.ShowDialog();
-            this.Close();
+            OpenFileDialog avatar = new OpenFileDialog();
+
+            if (avatar.ShowDialog() == DialogResult.OK)
+            {
+                string imagePath = avatar.FileName;
+                avatarPtb.Image = Image.FromFile(imagePath);
+            }   
         }
     }
 }
