@@ -149,6 +149,12 @@
     <Compile Include="Classes\FirestoreHelper.cs" />
     <Compile Include="Classes\Security.cs" />
     <Compile Include="Classes\UserData.cs" />
+    <Compile Include="Forms\Form_QuenMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_QuenMatKhau.Designer.cs">
+      <DependentUpon>Form_QuenMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Form_Tra_Loi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +199,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Form_QuenMatKhau.resx">
+      <DependentUpon>Form_QuenMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_Tra_Loi.resx">
       <DependentUpon>Form_Tra_Loi.cs</DependentUpon>
     </EmbeddedResource>

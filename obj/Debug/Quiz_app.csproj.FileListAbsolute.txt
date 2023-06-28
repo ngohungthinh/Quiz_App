@@ -188,3 +188,4 @@ C:\Users\thinhdeptrai2k2\OneDrive\Desktop\Quiz_app_All_Form\obj\Debug\Quiz_app.c
 C:\Users\thinhdeptrai2k2\OneDrive\Desktop\Quiz_app_All_Form\obj\Debug\Quiz_app.Forms.Form_Tra_Loi.resources
 C:\Users\thinhdeptrai2k2\OneDrive\Desktop\Quiz_app_All_Form\obj\Debug\Quiz_app.Forms.Form_Tao_Quiz.resources
 C:\Users\thinhdeptrai2k2\OneDrive\Desktop\Quiz_app_All_Form\obj\Debug\Quiz_app.Forms.Form_Chinh_After_Login.resources
+C:\Users\thinhdeptrai2k2\OneDrive\Desktop\Quiz_app_All_Form\obj\Debug\Quiz_app.Forms.Form_QuenMatKhau.resources

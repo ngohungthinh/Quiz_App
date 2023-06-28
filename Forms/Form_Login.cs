@@ -59,6 +59,14 @@ namespace Quiz_app.Forms
             this.Close();
         }
 
+        private void label_QuenMatKhau_Click(object sender, EventArgs e)
+        {
+            Form_QuenMatKhau f = new Form_QuenMatKhau();
+            this.Hide();
+            f.ShowDialog();
+            this.Close();
+        }
+
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             try
