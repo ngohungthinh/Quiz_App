@@ -78,8 +78,13 @@ namespace Quiz_app.Forms
             {
                 UserData data = snap.ConvertTo<UserData>();
                 textBox_Result.Text = "Mật khẩu của bạn: " + Security.Decrypt(data.Password);
+<<<<<<< HEAD
             }
             textBox_Result.Visible = true;
+=======
+                textBox_Result.Visible = true;
+            }
+>>>>>>> df9c0c102e8e321c7c984508a2081bc1dda5ef00
         }
     }
 }
