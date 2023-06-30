@@ -282,8 +282,9 @@ namespace Quiz_app.Forms
                     MessageBox.Show("Error loading image: " + ex.Message);
                 }
                 string quizzid = quizzes[i].ID;
+                string tenquizz = quizzes[i].TenQuiz;
 
-                pictureBox.Click += (sender, e) => PictureBox_Click(sender, e, quizzid);
+                pictureBox.Click += (sender, e) => PictureBox_Click(sender, e, quizzid, tenquizz);
 
                 flowLayoutPanel1.Controls.Add(pictureBox);
                 
@@ -307,10 +308,10 @@ namespace Quiz_app.Forms
             }    
             LoadQuizzes(quizzes_DeLoad, cnt);
         }
-        private void PictureBox_Click(object sender, EventArgs e, string quizzID)
+        private void PictureBox_Click(object sender, EventArgs e, string quizzID,string tenquizz)
         {
             this.Hide();
-            Form_Tra_Loi f = new Form_Tra_Loi(quizzID);
+            Form_Tra_Loi f = new Form_Tra_Loi(quizzID,tenquizz);
             f.ShowDialog();
             this.Close();
         }

@@ -17,15 +17,16 @@ namespace Quiz_app.Forms
 {
     public partial class Form_Tra_Loi : Form
     {
-        private string quizz_id;
+        private string quizz_id,ten_quizz;
         private Data_DapAn[] questions;
         private int SoCauHoi = 0;
         private int Stt_Current = 0;
         private int numOfCorrectness = 0;
-        public Form_Tra_Loi(string quiz_id)
+        public Form_Tra_Loi(string quiz_id,string tenquizz)
         {
             InitializeComponent();
             quizz_id = quiz_id;
+            ten_quizz = tenquizz;
         }
         public Point mouseLocation;
         private void mouse_Down(object sender, MouseEventArgs e)
@@ -71,6 +72,7 @@ namespace Quiz_app.Forms
         private async void Form_Tra_Loi_Load(object sender, EventArgs e)
         {
             lb_QuizID.Text ="Quiz ID: " + quizz_id;
+            lb_TenQuiz.Text = "Quiz: " + ten_quizz;
 
             questions = Form_Chinh.Question[quizz_id];
             SoCauHoi = Form_Chinh.SLCauHoi[quizz_id];
@@ -103,7 +105,6 @@ namespace Quiz_app.Forms
         }
         private void showQuestion(int id)
         {
-
             tb_question.Text = questions[id].Cauhoi;
             lb_A.Text = questions[id].DA1;
             lb_B.Text = questions[id].DA2;
