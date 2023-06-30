@@ -300,8 +300,8 @@ namespace Quiz_app.Forms
 
         private void btn_thoat_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form_Chinh f = new Form_Chinh();
+            Hide();
+            Form_Chinh_After_Login f = new Form_Chinh_After_Login();
             f.ShowDialog();
             this.Close();
         }

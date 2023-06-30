@@ -156,9 +156,9 @@ namespace Quiz_app.Forms
             this.btn_thoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_thoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_thoat.ForeColor = System.Drawing.Color.White;
-            this.btn_thoat.Location = new System.Drawing.Point(1271, 21);
+            this.btn_thoat.Location = new System.Drawing.Point(1297, 23);
             this.btn_thoat.Name = "btn_thoat";
-            this.btn_thoat.Size = new System.Drawing.Size(120, 35);
+            this.btn_thoat.Size = new System.Drawing.Size(93, 36);
             this.btn_thoat.TabIndex = 48;
             this.btn_thoat.Text = "Thoát";
             this.btn_thoat.UseVisualStyleBackColor = false;
@@ -167,7 +167,7 @@ namespace Quiz_app.Forms
             // avatarPtb
             // 
             this.avatarPtb.Image = global::Quiz_app.Properties.Resources.avata_2;
-            this.avatarPtb.Location = new System.Drawing.Point(768, 2);
+            this.avatarPtb.Location = new System.Drawing.Point(855, 6);
             this.avatarPtb.Name = "avatarPtb";
             this.avatarPtb.Size = new System.Drawing.Size(60, 60);
             this.avatarPtb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -183,7 +183,7 @@ namespace Quiz_app.Forms
             this.button_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Logout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button_Logout.Location = new System.Drawing.Point(1112, 21);
+            this.button_Logout.Location = new System.Drawing.Point(1178, 24);
             this.button_Logout.Name = "button_Logout";
             this.button_Logout.Size = new System.Drawing.Size(93, 35);
             this.button_Logout.TabIndex = 44;
@@ -197,7 +197,7 @@ namespace Quiz_app.Forms
             this.profileLb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.profileLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.profileLb.Location = new System.Drawing.Point(866, 21);
+            this.profileLb.Location = new System.Drawing.Point(932, 24);
             this.profileLb.Name = "profileLb";
             this.profileLb.Size = new System.Drawing.Size(205, 31);
             this.profileLb.TabIndex = 43;
