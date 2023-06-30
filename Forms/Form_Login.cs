@@ -86,7 +86,7 @@ namespace Quiz_app.Forms
                 {
                     if (password == Security.Decrypt(data.Password))
                     {
-                        MessageBox.Show("Login Success");
+                        //MessageBox.Show("Login Success");
 
                         Form_Chinh_After_Login.username = email;
                         Form_Chinh_After_Login.userData = data;

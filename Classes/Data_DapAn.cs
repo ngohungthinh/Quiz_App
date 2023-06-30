@@ -7,7 +7,7 @@ using Google.Cloud.Firestore;
 namespace Quiz_app.Classes
 {
     [FirestoreData]
-    class Data_DapAn
+    public class Data_DapAn
     {
        
         [FirestoreProperty]

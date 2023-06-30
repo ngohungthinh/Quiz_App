@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Login_Signup.Classes
 {
     [FirestoreData]
-    class QuizzData
+    public class QuizzData
     {
         [FirestoreProperty]
         public string DateTime { get; set; }

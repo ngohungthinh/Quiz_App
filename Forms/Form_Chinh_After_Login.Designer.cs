@@ -122,7 +122,7 @@ namespace Quiz_app.Forms
             this.panel2.Controls.Add(this.profileLb);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 30);
             this.panel2.Name = "panel2";
@@ -131,6 +131,7 @@ namespace Quiz_app.Forms
             // 
             // avatarPtb
             // 
+            this.avatarPtb.Cursor = System.Windows.Forms.Cursors.Hand;
             this.avatarPtb.Image = global::Quiz_app.Properties.Resources.avata_2;
             this.avatarPtb.Location = new System.Drawing.Point(711, 6);
             this.avatarPtb.Name = "avatarPtb";
@@ -160,6 +161,7 @@ namespace Quiz_app.Forms
             // 
             this.profileLb.AutoSize = true;
             this.profileLb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.profileLb.Cursor = System.Windows.Forms.Cursors.Hand;
             this.profileLb.Font = new System.Drawing.Font("Montserrat SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileLb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.profileLb.Location = new System.Drawing.Point(777, 21);
@@ -179,6 +181,7 @@ namespace Quiz_app.Forms
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -191,6 +194,7 @@ namespace Quiz_app.Forms
             this.label1.Size = new System.Drawing.Size(228, 26);
             this.label1.TabIndex = 2;
             this.label1.Text = "Oh My Quiz!";
+            this.label1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // panel3
             // 

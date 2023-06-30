@@ -77,7 +77,7 @@ namespace Quiz_app.Forms
             if(snap.Exists)
             {
                 UserData data = snap.ConvertTo<UserData>();
-                textBox_Result.Text = "Mật khẩu của bạn: " + Security.Decrypt(data.Password);
+                textBox_Result.Text = "Đã gởi mật khẩu vào Email của bạn! ";
             }
             textBox_Result.Visible = true;
         }

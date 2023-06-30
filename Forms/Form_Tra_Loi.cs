@@ -18,7 +18,7 @@ namespace Quiz_app.Forms
     public partial class Form_Tra_Loi : Form
     {
         private string quizz_id;
-        private Data_DapAn[] questions = new Data_DapAn[100];
+        private Data_DapAn[] questions;
         private int SoCauHoi = 0;
         private int Stt_Current = 0;
         private int numOfCorrectness = 0;
@@ -71,26 +71,9 @@ namespace Quiz_app.Forms
         private async void Form_Tra_Loi_Load(object sender, EventArgs e)
         {
             lb_QuizID.Text ="Quiz ID: " + quizz_id;
-            var db = FirestoreHelper.Database;
-            DocumentReference doRef = db.Collection("Cauhoi_DAdung").Document(quizz_id);
-            DocumentSnapshot snapshot = await doRef.GetSnapshotAsync();
 
-            if (snapshot.Exists)
-            {
-                Dictionary<string, object> data = snapshot.ToDictionary();
-                foreach (KeyValuePair<string, object> r in data)
-                {
-                    if (r.Key == "creator" || r.Key == "DateTime" || r.Key == "TenQuiz") continue;
-                    string str = JsonConvert.SerializeObject(r.Value);
-                    Data_DapAn data_dapan = JsonConvert.DeserializeObject<Data_DapAn>(str);
-                    questions[SoCauHoi] = data_dapan;
-                    SoCauHoi++;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Khong ton tai!");
-            }
+            questions = Form_Chinh.Question[quizz_id];
+            SoCauHoi = Form_Chinh.SLCauHoi[quizz_id];
 
             showQuestion(0);
         }
@@ -127,7 +110,11 @@ namespace Quiz_app.Forms
             lb_C.Text = questions[id].DA3;
             lb_D.Text = questions[id].DA4;
             byte[] imageBytes = Convert.FromBase64String(questions[id].AnhMinhHoa);
-            
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                Image image = Image.FromStream(ms);
+                ptb_AnhMinhHoa.Image = image.GetThumbnailImage(187, 148, null, IntPtr.Zero);
+            }
         }
 
         private bool checkAns(string dapAn)

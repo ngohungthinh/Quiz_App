@@ -59,6 +59,7 @@ namespace Quiz_app.Forms
             this.lb_SoThuTuCau = new System.Windows.Forms.Label();
             this.lb_QuizID = new System.Windows.Forms.Label();
             this.lb_TenQuiz = new System.Windows.Forms.Label();
+            this.btn_thoat = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -107,6 +108,7 @@ namespace Quiz_app.Forms
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(65)))));
+            this.panel2.Controls.Add(this.btn_thoat);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -401,6 +403,20 @@ namespace Quiz_app.Forms
             this.lb_TenQuiz.TabIndex = 0;
             this.lb_TenQuiz.Text = "Quiz: Kiến thức xã hội";
             // 
+            // btn_thoat
+            // 
+            this.btn_thoat.BackColor = System.Drawing.Color.DarkRed;
+            this.btn_thoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_thoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_thoat.ForeColor = System.Drawing.Color.White;
+            this.btn_thoat.Location = new System.Drawing.Point(1003, 23);
+            this.btn_thoat.Name = "btn_thoat";
+            this.btn_thoat.Size = new System.Drawing.Size(120, 35);
+            this.btn_thoat.TabIndex = 49;
+            this.btn_thoat.Text = "Thoát";
+            this.btn_thoat.UseVisualStyleBackColor = false;
+            this.btn_thoat.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // Form_Tra_Loi
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -464,5 +480,6 @@ namespace Quiz_app.Forms
         private System.Windows.Forms.Label lb_C;
         private System.Windows.Forms.Label lb_D;
         private System.Windows.Forms.Label lb_A;
+        private System.Windows.Forms.Button btn_thoat;
     }
 }

@@ -136,6 +136,7 @@ namespace Quiz_app.Forms
             this.avatarPtb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.avatarPtb.TabIndex = 42;
             this.avatarPtb.TabStop = false;
+            this.avatarPtb.Click += new System.EventHandler(this.avatarPtb_Click);
             // 
             // button_Logout
             // 
@@ -164,6 +165,7 @@ namespace Quiz_app.Forms
             this.profileLb.Size = new System.Drawing.Size(173, 28);
             this.profileLb.TabIndex = 8;
             this.profileLb.Text = "Ngô Hùng Thịnh";
+            this.profileLb.Click += new System.EventHandler(this.avatarPtb_Click);
             // 
             // pictureBox1
             // 

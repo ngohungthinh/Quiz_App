@@ -192,7 +192,7 @@ namespace Quiz_app.Forms
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBoxEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEmail.Location = new System.Drawing.Point(461, 277);
             this.textBoxEmail.Name = "textBoxEmail";
@@ -227,7 +227,7 @@ namespace Quiz_app.Forms
             // 
             // textBoxName
             // 
-            this.textBoxName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBoxName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxName.Location = new System.Drawing.Point(461, 429);
             this.textBoxName.Name = "textBoxName";
@@ -247,7 +247,7 @@ namespace Quiz_app.Forms
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBoxPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.Location = new System.Drawing.Point(461, 351);
             this.textBoxPassword.Name = "textBoxPassword";

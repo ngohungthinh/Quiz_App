@@ -61,6 +61,14 @@ namespace Quiz_app.Forms
             Form_Chinh form_Chinh = new Form_Chinh();
             form_Chinh.ShowDialog();
             this.Close();
+            Form_Chinh_After_Login.username = "";
+        }
+        private void avatarPtb_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form_Profile f = new Form_Profile();
+            f.ShowDialog();
+            this.Close();
         }
         //---------------------------------------------------------------------------
         public async void Form_Profile_onLoad(object sender, EventArgs e)
@@ -82,46 +90,18 @@ namespace Quiz_app.Forms
         //Show Quiz của nick
         private async void btn_ShowQuiz_Click(object sender, EventArgs e)
         {
-            var db = FirestoreHelper.Database;
-            Query allQuizzQuery = db.Collection("Cauhoi_DAdung");
-            QuerySnapshot allQuizzQuerySnapshot = await allQuizzQuery.GetSnapshotAsync();
-            QuizzData[] quizzes = new QuizzData[100];
+            QuizzData[] quizzes_DeLoad = new QuizzData[100];
             int cnt = 0;
-            foreach (DocumentSnapshot documentSnapshot in allQuizzQuerySnapshot.Documents)
+
+            for (int i = 0; i < Form_Chinh.SoLuongQuizzes; i++)
             {
-                QuizzData quizz = new QuizzData();
-                quizz.ID = documentSnapshot.Id;
-                Dictionary<string, object> Rows = documentSnapshot.ToDictionary();
-                quizz.Image = "";
-                foreach (KeyValuePair<string, object> r in Rows)
-                {
-                    if (r.Key == "creator")
-                    {
-                        quizz.Creator = r.Value as string;
-                        continue;
-                    }
-                    if (r.Key == "DateTime")
-                    {
-                        quizz.DateTime = r.Value as string;
-                        continue;
-                    }
-                    if (r.Key == "TenQuiz")
-                    {
-                        quizz.TenQuiz = r.Value as string;
-                        continue;
-                    }
-                    if (quizz.Image != "") continue;
-                    // Lấy ảnh của câu hỏi đầu tiên làm ảnh thumbnail
-                    string str = JsonConvert.SerializeObject(r.Value);
-                    Data_DapAn data_dapan = JsonConvert.DeserializeObject<Data_DapAn>(str);
-                    quizz.Image = data_dapan.AnhMinhHoa;
-                }
-                if (quizz.Creator != Form_Chinh_After_Login.username) { continue; }
-                quizzes[cnt] = quizz;
+                if (Form_Chinh.Quizzes[i].Creator != Form_Chinh_After_Login.username) { continue; }
+                quizzes_DeLoad[cnt] = Form_Chinh.Quizzes[i];
                 cnt++;
-                if (cnt == 100) break; // lay toi da 100 quizzes
+                if (cnt == 100) break;
+
             }
-            LoadQuizzes(quizzes, cnt);
+            LoadQuizzes(quizzes_DeLoad, cnt);
             flowLayoutPanel1.Visible = true;
         }
         private void LoadQuizzes(QuizzData[] quizzes, int n)
