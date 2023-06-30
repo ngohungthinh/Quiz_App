@@ -12,17 +12,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Quiz_app.Forms
 {
-    public partial class Form_Profile : Form
+    public partial class Form_Chinh_After_Login : Form
     {
-        public Form_Profile()
+        public static string username = "";
+        public static UserData userData;
+        public Form_Chinh_After_Login()
         {
             InitializeComponent();
         }
-
         public Point mouseLocation;
         private void mouse_Down(object sender, MouseEventArgs e)
         {
@@ -37,21 +37,40 @@ namespace Quiz_app.Forms
                 Location = mousePose;
             }
         }
-        private void label_Close_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void label2_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        //--------------------------------------------------------------------------
-        private void pictureBox1_Click(object sender, EventArgs e)
+
+        private void label_Close_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        //-------------------------------------------------------------------------
+        bool isChangetextBox_SearchQuiz = false;
+        private void textBox_SearchQuiz_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (isChangetextBox_SearchQuiz == false)
+            {
+                textBox_SearchQuiz.Text = "";
+                isChangetextBox_SearchQuiz = true;
+            }
+        }
+
+        private void textBox_SearchQuiz_Leave(object sender, EventArgs e)
+        {
+            if (textBox_SearchQuiz.Text == "")
+            {
+                textBox_SearchQuiz.Text = "Nhập tên.....";
+                isChangetextBox_SearchQuiz = false;
+            }
+        }
+        //---------------------------------------------------------------------------
+        private void avatarPtb_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form_Chinh_After_Login f = new Form_Chinh_After_Login();
-            f.ShowDialog();
+            Form_Profile formProfile = new Form_Profile();
+            formProfile.ShowDialog();
             this.Close();
         }
 
@@ -62,26 +81,26 @@ namespace Quiz_app.Forms
             form_Chinh.ShowDialog();
             this.Close();
         }
-        //---------------------------------------------------------------------------
-        public async void Form_Profile_onLoad(object sender, EventArgs e)
+
+        private void button_TaoQuiz_Click(object sender, EventArgs e)
         {
-            UserData userData = Form_Chinh_After_Login.userData;
+            Form_Tao_Quiz f = new Form_Tao_Quiz();
+            this.Hide();
+            f.ShowDialog();
+            this.Close();
+        }
+        //-----------------------------------------------------------------------------
+        public async void Form_Chinh_After_Login_onLoad(object sender, EventArgs e)
+        {
+            profileLb.Text = userData.Name;
             byte[] imageBytes = Convert.FromBase64String(userData.Avatar);
             using (MemoryStream ms = new MemoryStream(imageBytes))
             {
                 Image image = Image.FromStream(ms);
                 avatarPtb.Image = image.GetThumbnailImage(60, 60, null, IntPtr.Zero);
-                avatarValuePtb.Image = image.GetThumbnailImage(100, 100, null, IntPtr.Zero);
             }
-            hoTenValueLb.Text = userData.Name;
-            emailValueLb.Text = userData.Email;
 
-            profileLb.Text = userData.Name;
-        }
-        //----------------------------------------------------------------
-        //Show Quiz của nick
-        private async void btn_ShowQuiz_Click(object sender, EventArgs e)
-        {
+            //---------------------
             var db = FirestoreHelper.Database;
             Query allQuizzQuery = db.Collection("Cauhoi_DAdung");
             QuerySnapshot allQuizzQuerySnapshot = await allQuizzQuery.GetSnapshotAsync();
@@ -91,7 +110,9 @@ namespace Quiz_app.Forms
             {
                 QuizzData quizz = new QuizzData();
                 quizz.ID = documentSnapshot.Id;
+
                 Dictionary<string, object> Rows = documentSnapshot.ToDictionary();
+
                 quizz.Image = "";
                 foreach (KeyValuePair<string, object> r in Rows)
                 {
@@ -116,14 +137,16 @@ namespace Quiz_app.Forms
                     Data_DapAn data_dapan = JsonConvert.DeserializeObject<Data_DapAn>(str);
                     quizz.Image = data_dapan.AnhMinhHoa;
                 }
-                if (quizz.Creator != Form_Chinh_After_Login.username) { continue; }
                 quizzes[cnt] = quizz;
                 cnt++;
                 if (cnt == 100) break; // lay toi da 100 quizzes
             }
+            // Lấy ra 1 loạt các tên_Quiz, Quiz_ID
+            //MessageBox.Show(cnt.ToString());
             LoadQuizzes(quizzes, cnt);
-            flowLayoutPanel1.Visible = true;
+            //----------
         }
+        //----------------------------------------------------------------------------------
         private void LoadQuizzes(QuizzData[] quizzes, int n)
         {
             flowLayoutPanel1.Controls.Clear();
@@ -186,7 +209,51 @@ namespace Quiz_app.Forms
             f.ShowDialog();
             this.Close();
         }
-        //Show Quiz của nick
-        //-------------------------------------------------------------------------------------------
+        //----------------------------------------------------------------------------------
+        private async void button_TimQuiz_Click(object sender, EventArgs e)
+        {
+            string searchStr = textBox_SearchQuiz.Text.Trim().ToLower();
+            var db = FirestoreHelper.Database;
+            Query allQuizzQuery = db.Collection("Cauhoi_DAdung");
+            QuerySnapshot allQuizzQuerySnapshot = await allQuizzQuery.GetSnapshotAsync();
+            QuizzData[] quizzes = new QuizzData[100];
+            int cnt = 0;
+            foreach (DocumentSnapshot documentSnapshot in allQuizzQuerySnapshot.Documents)
+            {
+                QuizzData quizz = new QuizzData();
+                quizz.ID = documentSnapshot.Id;
+                Dictionary<string, object> Rows = documentSnapshot.ToDictionary();
+                quizz.Image = "";
+                foreach (KeyValuePair<string, object> r in Rows)
+                {
+                    if (r.Key == "creator")
+                    {
+                        quizz.Creator = r.Value as string;
+                        continue;
+                    }
+                    if (r.Key == "DateTime")
+                    {
+                        quizz.DateTime = r.Value as string;
+                        continue;
+                    }
+                    if (r.Key == "TenQuiz")
+                    {
+                        quizz.TenQuiz = r.Value as string;
+                        continue;
+                    }
+                    if (quizz.Image != "") continue;
+                    // Lấy ảnh của câu hỏi đầu tiên làm ảnh thumbnail
+                    string str = JsonConvert.SerializeObject(r.Value);
+                    Data_DapAn data_dapan = JsonConvert.DeserializeObject<Data_DapAn>(str);
+                    quizz.Image = data_dapan.AnhMinhHoa;
+                }
+                if (quizz.TenQuiz.ToLower().IndexOf(searchStr) == -1) { continue; }
+                quizzes[cnt] = quizz;
+                cnt++;
+                if (cnt == 100) break; // lay toi da 100 quizzes
+            }
+            LoadQuizzes(quizzes, cnt);
+        }
+        //----------------------------------------------------------------------------------
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace Quiz_app.Forms
 {
-    partial class Form_Login
+    partial class Form_QuenMatKhau
     {
         /// <summary>
         /// Required designer variable.
@@ -35,20 +35,17 @@ namespace Quiz_app.Forms
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button_signup = new System.Windows.Forms.Button();
+            this.button_login = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.buttonLogin = new System.Windows.Forms.Button();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.button_LayLaiMatKhau = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.label_Nhap_sai = new System.Windows.Forms.Label();
-            this.label_QuenMatKhau = new System.Windows.Forms.Label();
+            this.textBox_Result = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -97,7 +94,7 @@ namespace Quiz_app.Forms
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(65)))));
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.button_signup);
+            this.panel2.Controls.Add(this.button_login);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 30);
             this.panel2.Name = "panel2";
@@ -129,21 +126,20 @@ namespace Quiz_app.Forms
             this.label1.Text = "Oh My Quiz!";
             this.label1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // button_signup
+            // button_login
             // 
-            this.button_signup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_signup.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button_signup.FlatAppearance.BorderSize = 2;
-            this.button_signup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_signup.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_signup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button_signup.Location = new System.Drawing.Point(1002, 17);
-            this.button_signup.Name = "button_signup";
-            this.button_signup.Size = new System.Drawing.Size(105, 35);
-            this.button_signup.TabIndex = 4;
-            this.button_signup.Text = "Đăng kí";
-            this.button_signup.UseVisualStyleBackColor = true;
-            this.button_signup.Click += new System.EventHandler(this.button_signup_Click);
+            this.button_login.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_login.FlatAppearance.BorderSize = 2;
+            this.button_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_login.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_login.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_login.Location = new System.Drawing.Point(1002, 17);
+            this.button_login.Name = "button_login";
+            this.button_login.Size = new System.Drawing.Size(105, 35);
+            this.button_login.TabIndex = 3;
+            this.button_login.Text = "Đăng nhập";
+            this.button_login.UseVisualStyleBackColor = true;
+            this.button_login.Click += new System.EventHandler(this.button_login_Click);
             // 
             // panel3
             // 
@@ -186,108 +182,79 @@ namespace Quiz_app.Forms
             this.panel7.Size = new System.Drawing.Size(1157, 1);
             this.panel7.TabIndex = 6;
             // 
-            // buttonLogin
-            // 
-            this.buttonLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
-            this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLogin.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLogin.ForeColor = System.Drawing.Color.White;
-            this.buttonLogin.Location = new System.Drawing.Point(329, 545);
-            this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(502, 69);
-            this.buttonLogin.TabIndex = 20;
-            this.buttonLogin.Text = "Đăng nhập";
-            this.buttonLogin.UseVisualStyleBackColor = false;
-            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
-            // 
-            // textBoxPassword
-            // 
-            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.Location = new System.Drawing.Point(459, 461);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(372, 29);
-            this.textBoxPassword.TabIndex = 19;
-            this.textBoxPassword.UseSystemPasswordChar = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(330, 464);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 24);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Password:";
-            // 
             // textBoxEmail
             // 
+            this.textBoxEmail.Cursor = System.Windows.Forms.Cursors.Hand;
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmail.Location = new System.Drawing.Point(459, 410);
+            this.textBoxEmail.Location = new System.Drawing.Point(459, 321);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(372, 29);
-            this.textBoxEmail.TabIndex = 17;
+            this.textBoxEmail.TabIndex = 36;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(330, 413);
+            this.label7.Location = new System.Drawing.Point(325, 326);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(62, 24);
-            this.label7.TabIndex = 16;
+            this.label7.TabIndex = 35;
             this.label7.Text = "Email:";
+            // 
+            // button_LayLaiMatKhau
+            // 
+            this.button_LayLaiMatKhau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.button_LayLaiMatKhau.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_LayLaiMatKhau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_LayLaiMatKhau.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_LayLaiMatKhau.ForeColor = System.Drawing.Color.White;
+            this.button_LayLaiMatKhau.Location = new System.Drawing.Point(329, 408);
+            this.button_LayLaiMatKhau.Name = "button_LayLaiMatKhau";
+            this.button_LayLaiMatKhau.Size = new System.Drawing.Size(502, 69);
+            this.button_LayLaiMatKhau.TabIndex = 30;
+            this.button_LayLaiMatKhau.Text = "Lấy lại mật khẩu";
+            this.button_LayLaiMatKhau.UseVisualStyleBackColor = false;
+            this.button_LayLaiMatKhau.Click += new System.EventHandler(this.button_LayLaiMatKhau_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label9.Font = new System.Drawing.Font("Snap ITC", 50.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.label9.Location = new System.Drawing.Point(275, 243);
+            this.label9.Font = new System.Drawing.Font("Arial Rounded MT Bold", 50.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label9.Location = new System.Drawing.Point(297, 172);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(610, 86);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "Welcome Back!";
+            this.label9.Size = new System.Drawing.Size(587, 77);
+            this.label9.TabIndex = 37;
+            this.label9.Text = "Forgot Password";
             // 
-            // label_Nhap_sai
+            // textBox_Result
             // 
-            this.label_Nhap_sai.AutoSize = true;
-            this.label_Nhap_sai.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label_Nhap_sai.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Nhap_sai.ForeColor = System.Drawing.Color.DarkRed;
-            this.label_Nhap_sai.Location = new System.Drawing.Point(404, 638);
-            this.label_Nhap_sai.Name = "label_Nhap_sai";
-            this.label_Nhap_sai.Size = new System.Drawing.Size(0, 29);
-            this.label_Nhap_sai.TabIndex = 39;
+            this.textBox_Result.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox_Result.Font = new System.Drawing.Font("Montserrat SemiBold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Result.ForeColor = System.Drawing.Color.DarkRed;
+            this.textBox_Result.Location = new System.Drawing.Point(329, 507);
+            this.textBox_Result.Multiline = true;
+            this.textBox_Result.Name = "textBox_Result";
+            this.textBox_Result.Size = new System.Drawing.Size(502, 46);
+            this.textBox_Result.TabIndex = 39;
+            this.textBox_Result.Text = "Email không hợp lệ!";
+            this.textBox_Result.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_Result.Visible = false;
             // 
-            // label_QuenMatKhau
-            // 
-            this.label_QuenMatKhau.AutoSize = true;
-            this.label_QuenMatKhau.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label_QuenMatKhau.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_QuenMatKhau.Location = new System.Drawing.Point(679, 628);
-            this.label_QuenMatKhau.Name = "label_QuenMatKhau";
-            this.label_QuenMatKhau.Size = new System.Drawing.Size(152, 22);
-            this.label_QuenMatKhau.TabIndex = 40;
-            this.label_QuenMatKhau.Text = "Quên mật khẩu?";
-            this.label_QuenMatKhau.Click += new System.EventHandler(this.label_QuenMatKhau_Click);
-            // 
-            // Form_Login
+            // Form_QuenMatKhau
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1157, 732);
-            this.Controls.Add(this.label_QuenMatKhau);
-            this.Controls.Add(this.label_Nhap_sai);
+            this.Controls.Add(this.textBox_Result);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.buttonLogin);
-            this.Controls.Add(this.textBoxPassword);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.button_LayLaiMatKhau);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
@@ -295,8 +262,9 @@ namespace Quiz_app.Forms
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form_Login";
+            this.Name = "Form_QuenMatKhau";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
@@ -313,7 +281,7 @@ namespace Quiz_app.Forms
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button_signup;
+        private System.Windows.Forms.Button button_login;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label_Close;
@@ -323,13 +291,10 @@ namespace Quiz_app.Forms
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button buttonLogin;
-        private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button_LayLaiMatKhau;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label_Nhap_sai;
-        private System.Windows.Forms.Label label_QuenMatKhau;
+        private System.Windows.Forms.TextBox textBox_Result;
     }
 }

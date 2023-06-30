@@ -18,7 +18,6 @@ namespace Quiz_app.Forms
         {
             InitializeComponent();
         }
-
         public Point mouseLocation;
         private void mouse_Down(object sender, MouseEventArgs e)
         {
@@ -42,11 +41,28 @@ namespace Quiz_app.Forms
         {
             Application.Exit();
         }
+        //-----------------------------------------------------------------
 
         private void button_signup_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form_Register f = new Form_Register();
+            f.ShowDialog();
+            this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form_Chinh f = new Form_Chinh();
+            f.ShowDialog();
+            this.Close();
+        }
+
+        private void label_QuenMatKhau_Click(object sender, EventArgs e)
+        {
+            Form_QuenMatKhau f = new Form_QuenMatKhau();
+            this.Hide();
             f.ShowDialog();
             this.Close();
         }
@@ -70,10 +86,13 @@ namespace Quiz_app.Forms
                 {
                     if (password == Security.Decrypt(data.Password))
                     {
-                        MessageBox.Show("Login success!");
-                        Form_Chinh.username = email;
+                        MessageBox.Show("Login Success");
+
+                        Form_Chinh_After_Login.username = email;
+                        Form_Chinh_After_Login.userData = data;
+
                         this.Hide();
-                        Form_Chinh formChinh = new Form_Chinh();
+                        Form_Chinh_After_Login formChinh = new Form_Chinh_After_Login();
                         formChinh.ShowDialog();
                         this.Close();
                     }
@@ -87,22 +106,6 @@ namespace Quiz_app.Forms
             {
                 label_Nhap_sai.Text = "Vui lòng kiểm tra lại thông tin!";
             }
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form_Chinh f = new Form_Chinh();
-            f.ShowDialog();
-            this.Close();
-        }
-
-        private void button_ForgetPass_Click(object sender, EventArgs e)
-        {
-            Quenmatkhau f = new Quenmatkhau();
-            this.Hide();
-            f.ShowDialog();
-            this.Close();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Quiz_app.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -63,9 +63,9 @@ namespace Quiz_app.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Background_xanh_duong_basic {
+        internal static System.Drawing.Bitmap avata_2 {
             get {
-                object obj = ResourceManager.GetObject("Background-xanh-duong-basic", resourceCulture);
+                object obj = ResourceManager.GetObject("avata-2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,19 @@ namespace Quiz_app.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap istockphoto_1399359846_612x612 {
+        internal static System.Drawing.Bitmap avatar {
             get {
-                object obj = ResourceManager.GetObject("istockphoto-1399359846-612x612", resourceCulture);
+                object obj = ResourceManager.GetObject("avatar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mmh {
+            get {
+                object obj = ResourceManager.GetObject("mmh", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -86,26 +96,6 @@ namespace Quiz_app.Properties {
         internal static System.Drawing.Bitmap Q2 {
             get {
                 object obj = ResourceManager.GetObject("Q2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap vong_quay_may_man_tren_powerpoint_2 {
-            get {
-                object obj = ResourceManager.GetObject("vong-quay-may-man-tren-powerpoint-2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap vong_quay_may_man_tren_powerpoint_23 {
-            get {
-                object obj = ResourceManager.GetObject("vong-quay-may-man-tren-powerpoint-23", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

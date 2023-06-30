@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 namespace Quiz_app.Forms
 {
@@ -43,7 +44,7 @@ namespace Quiz_app.Forms
         {
             Application.Exit();
         }
-
+        //-----------------------------------------------------------------------------------
         private void button_login_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -51,6 +52,15 @@ namespace Quiz_app.Forms
             f.ShowDialog();
             this.Close();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form_Chinh f = new Form_Chinh();
+            f.ShowDialog();
+            this.Close();
+        }
+
         private UserData GetWriteData()
         {
 
@@ -60,7 +70,13 @@ namespace Quiz_app.Forms
             string name = textBoxName.Text.Trim();
 
             // Profile picture
-            byte[] imageBytes = File.ReadAllBytes(avatarFilenameLb.Text);
+            Image image = avatarPtb.Image;
+            byte[] imageBytes;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                    image.Save(ms, image.RawFormat);
+                    imageBytes = ms.ToArray();
+            }
             string base64String = Convert.ToBase64String(imageBytes);
 
             return new UserData()
@@ -76,7 +92,7 @@ namespace Quiz_app.Forms
         {
             try
             {
-                if (textBoxPassword.Text == "" || textBoxName.Text == "" || avatarFilenameLb.Text == "") throw new Exception();
+                if (textBoxPassword.Text == "" || textBoxName.Text == "") throw new Exception();
                 label_Nhap_sai.Text = "";
                 if (CheckIfUserAlreadyExist())
                 {
@@ -112,25 +128,16 @@ namespace Quiz_app.Forms
             else
                 return false;
         }
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form_Chinh f = new Form_Chinh();
-            f.ShowDialog();
-            this.Close();
-        }
 
         private void loadAvatarBtn_Click(object sender, EventArgs e)
         {
             OpenFileDialog avatar = new OpenFileDialog();
-            avatar.Title = "Select image";
-            avatar.Filter = "Image Files(*.jpg) | *.jpg";
 
             if (avatar.ShowDialog() == DialogResult.OK)
             {
-                avatarFilenameLb.Text = avatar.FileName;
-            }
+                string imagePath = avatar.FileName;
+                avatarPtb.Image = Image.FromFile(imagePath);
+            }   
         }
-
     }
 }
