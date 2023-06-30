@@ -127,11 +127,7 @@ namespace Quiz_app.Forms
             lb_C.Text = questions[id].DA3;
             lb_D.Text = questions[id].DA4;
             byte[] imageBytes = Convert.FromBase64String(questions[id].AnhMinhHoa);
-            using (MemoryStream ms = new MemoryStream(imageBytes))
-            {
-                Image image = Image.FromStream(ms);
-                ptb_AnhMinhHoa.Image = image.GetThumbnailImage(187, 148, null, IntPtr.Zero);
-            }
+            
         }
 
         private bool checkAns(string dapAn)

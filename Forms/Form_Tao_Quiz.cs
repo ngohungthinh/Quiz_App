@@ -87,7 +87,7 @@ namespace Quiz_app.Forms
 
         private async void btn_ThemCauHoi_Click(object sender, EventArgs e)
         {
-            if ( ( (tb_TenQuiz.Text == "" || tb_QuizID.Text == "") || (tb_SoThuTuCau.Text == "" || tb_QuestionContent.Text == "") )  ||  
+            if ((image_label.Text == ""||(tb_TenQuiz.Text == "" || tb_QuizID.Text == "") || (tb_SoThuTuCau.Text == "" || tb_QuestionContent.Text == "") )  ||  
                 ( (radioButton1.Checked == false && radioButton2.Checked == false) && (radioButton3.Checked == false && radioButton4.Checked == false) ) )
             {
                 MessageBox.Show("Vui lòng xem lại dữ liệu!!!"); 
@@ -102,13 +102,8 @@ namespace Quiz_app.Forms
 
                     // Lay anh minh hoa va convert ve base64
                     Image image = AnhMinhHoa_Ptb.Image;
-                    byte[] imageBytes;
-                    using (MemoryStream ms = new MemoryStream())
-                    {
-                        image.Save(ms, image.RawFormat);
-                        imageBytes = ms.ToArray();
-                    }
-                    string base64String = Convert.ToBase64String(imageBytes);                  
+                    byte[] imageBytes = File.ReadAllBytes(image_label.Text);
+                    string base64String = Convert.ToBase64String(imageBytes);
 
                     var dulieu = new Dictionary<string, object>
                       {
@@ -281,6 +276,34 @@ namespace Quiz_app.Forms
                 dg_cauhoi.Rows.RemoveAt(this.dg_cauhoi.SelectedRows[0].Index);
                 await doRef.UpdateAsync(data);
             }
+        }
+
+        private void btn_TaiAnhMinhHoa_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog avatar = new OpenFileDialog();
+            avatar.Title = "Select image";
+            avatar.Filter = "Image Files(*.jpg) | *.jpg";
+
+            if (avatar.ShowDialog() == DialogResult.OK)
+            {
+                image_label.Text = avatar.FileName;
+            }
+            if (System.IO.File.Exists(image_label.Text))
+            {
+                Image image = Image.FromFile(image_label.Text);
+                Image thumbnail = image.GetThumbnailImage(187, 148, null, IntPtr.Zero);
+
+                AnhMinhHoa_Ptb.Image = thumbnail;
+
+            }
+        }
+
+        private void btn_thoat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form_Chinh f = new Form_Chinh();
+            f.ShowDialog();
+            this.Close();
         }
     }
 }
