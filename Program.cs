@@ -20,7 +20,7 @@ namespace Quiz_app
             //----
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_Chinh());
+            Application.Run(new Form_QuenMatKhau());
         }
     }
 }
